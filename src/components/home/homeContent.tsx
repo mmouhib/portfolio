@@ -11,6 +11,10 @@ const StyledHomeContent = styled.div`
 	align-items: center;
 	gap: 10%;
 	justify-content: center;
+
+	@media (max-width: 600px) {
+		flex-direction: column-reverse;
+	}
 `;
 
 const StyledTextSection = styled.div`
@@ -34,26 +38,21 @@ const StyledTextSection = styled.div`
 		font-size: 1.1em;
 	}
 
-	//& span {
-	//	background-image: linear-gradient(120deg, #4d67b0 0%, #8716b4 100%);
-	//	background-repeat: no-repeat;
-	//	background-size: 100% 0.05em;
-	//	background-position: 0 88%;
-	//	transition: background-size 0.25s ease-in;
-	//
-	//	&:hover {
-	//		background-size: 100% 88%;
-	//		color: #ab9898;
-	//	}
-	//}
-`;
-
-const StyledImageSection = styled.div`
-	width: 30%;
+	@media (max-width: 600px) {
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-size: 3vw;
+		width: 70%;
+	}
 `;
 
 const StyledAvatarImage = styled.img`
-	width: 100%;
+	width: 30%;
+
+	@media (max-width: 500px) {
+		width: 60%;
+	}
 `;
 
 export default function HomeContent() {
@@ -70,9 +69,7 @@ export default function HomeContent() {
 					software development field.
 				</p>
 			</StyledTextSection>
-			<StyledImageSection>
-				<StyledAvatarImage src={homeAvatar} alt="aa" />
-			</StyledImageSection>
+			<StyledAvatarImage src={homeAvatar} alt="aa" />
 		</StyledHomeContent>
 	);
 }

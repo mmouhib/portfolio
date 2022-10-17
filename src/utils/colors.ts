@@ -7,7 +7,7 @@ const colors = {
 			darker: '#391b6c',
 		},
 		mainTextColor: '#fff',
-		navbarNotSelectedColor: '#969696',
+		navbarNotSelectedColor: '#bbbbbb',
 	},
 	lightTheme: {
 		backgroundColor: '#fff',

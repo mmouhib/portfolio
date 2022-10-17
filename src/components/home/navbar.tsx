@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import colors from '../../utils/colors';
 
-const StyledHeader: any = styled.header`
+const StyledHeader = styled.header`
 	width: 100%;
 	height: 10%;
 	display: flex;
-	justify-content: space-around;
+
 	padding-top: 2vw;
 	cursor: pointer;
 	user-select: none;
 	align-items: center;
 	color: ${colors.darkTheme.mainTextColor};
+	justify-content: space-around;
 `;
 
 const StyledLogo = styled.div`
@@ -19,11 +20,15 @@ const StyledLogo = styled.div`
 `;
 
 const StyledNav = styled.nav`
+	color: ${colors.darkTheme.navbarNotSelectedColor};
 	display: flex;
 	justify-content: space-around;
-	width: 27%;
+	width: 33%;
 	font-family: Inter, serif;
 	font-weight: 400;
+	@media (max-width: 1000px) {
+		display: none;
+	}
 `;
 
 const StyledButton = styled.div`
