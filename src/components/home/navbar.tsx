@@ -30,7 +30,7 @@ const StyledButton = styled.div`
 	color: white;
 	background-color: ${colors.darkTheme.mainColor.normal};
 	padding: 1.5vh;
-	border-radius: 5px;
+	border-radius: 4px;
 	font-weight: bold;
 
 	&:hover {
