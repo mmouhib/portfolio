@@ -28,6 +28,7 @@ const StyledPathText = styled.p`
 	color: white;
 	font-family: 'JetBrains Mono', sans-serif;
 	font-size: small;
+	font-weight: bold;
 `;
 
 export default function ConsoleTopBar(props: ConsoleTopBarProps) {
