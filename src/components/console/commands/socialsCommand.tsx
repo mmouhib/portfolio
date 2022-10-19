@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 
-const StyledSocialsCommand = styled.div``;
+import { MdEmail } from 'react-icons/Md';
+import { BsInstagram, BsTwitter, BsFacebook, BsLinkedin } from 'react-icons/Bs';
+
+const StyledSocialsCommand = styled.div`
+	display: flex;
+	align-items: self-start;
+	justify-content: center;
+	flex-direction: column;
+`;
 
 export default function SocialsCommand() {
 	return (
 		<StyledSocialsCommand>
-			<ul>
-				<li>facebook.com/</li>
-				<li>ig: @</li>
-				<li>twitter @</li>
-				<li>linkedin: @</li>
-			</ul>
+			<span>{<BsFacebook />}/iwritebadcode</span>
+			<span>{<BsInstagram />}/iwritebadcode</span>
+			<span>{<BsTwitter />}/deflectoo</span>
+			<span>{<BsLinkedin />}/deflectoo</span>
+			<span>{<MdEmail />}:mouhibouni654@gmail.com</span>
 		</StyledSocialsCommand>
 	);
 }
