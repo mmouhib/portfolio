@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from '../utils/colors';
 import ConsoleTopBar from '../components/console/consoleTopBar';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ConsoleCommand from '../components/console/consoleCommand';
 
 const StyledConsole = styled.div`
@@ -55,24 +55,43 @@ const StyledConsoleContent = styled.div`
 export default function Console() {
 	const [path, setPath] = useState<string>('~/dev/react/portfolio');
 	const [commandsArray, setCommandsArray] = useState<any>(['']);
+	const [clear, setClear] = useState<boolean>(true);
+
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (!clear) setClear(true);
+	}, [clear]);
+
+	/**
+	 * this method clears the innerHTML of the console content
+	 * div when typing in a clear command using the ref object
+	 */
+	function clearConsole() {
+		if (ref.current) ref.current.innerHTML = '';
+	}
 
 	return (
 		<StyledConsole>
 			<StyledConsoleContainer>
 				<ConsoleTopBar path={path} />
-				<StyledConsoleBody>
-					<StyledConsoleContent>
-						{commandsArray.map(() => {
-							return (
-								<ConsoleCommand
-									commandsArray={commandsArray}
-									path={path}
-									setCommandsArray={setCommandsArray}
-								/>
-							);
-						})}
-					</StyledConsoleContent>
-				</StyledConsoleBody>
+				{clear && (
+					<StyledConsoleBody>
+						<StyledConsoleContent ref={ref}>
+							{commandsArray.map(() => {
+								return (
+									<ConsoleCommand
+										clearer={clearConsole}
+										setClear={setClear}
+										commandsArray={commandsArray}
+										path={path}
+										setCommandsArray={setCommandsArray}
+									/>
+								);
+							})}
+						</StyledConsoleContent>
+					</StyledConsoleBody>
+				)}
 			</StyledConsoleContainer>
 		</StyledConsole>
 	);

@@ -6,7 +6,9 @@ import SocialsCommand from './commands/socialsCommand';
 interface ConsoleCommandProps {
 	path: string;
 	commandsArray: any;
-	setCommandsArray: (x: any) => any;
+	setCommandsArray: (x: any) => void;
+	setClear: (x: boolean) => void;
+	clearer: () => void;
 }
 
 const StyledConsoleCommand = styled.div`
@@ -73,6 +75,12 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 								if (e.key === 'Enter') {
 									setCommandIsLaunched(true);
 									props.setCommandsArray([...props.commandsArray, '']);
+									if (
+										command.toLowerCase() == 'clear' ||
+										command.toLowerCase() == 'cls'
+									) {
+										props.clearer();
+									}
 								}
 							}}
 						/>
