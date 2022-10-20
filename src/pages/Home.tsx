@@ -7,6 +7,7 @@ const StyledHome = styled.div`
 	width: 100vw;
 	height: 100vh;
 	background-color: ${colors.darkTheme.backgroundColor};
+	font-family: 'JetBrains Mono', sans-serif;
 `;
 
 export default function Home() {

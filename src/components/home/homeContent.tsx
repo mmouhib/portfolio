@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import homeAvatar from '../../assets/homeAvatar.png';
 import colors from '../../utils/colors';
+import Typewriter from './typewriter';
 
 const StyledHomeContent = styled.div`
 	width: 100%;
@@ -60,7 +61,8 @@ export default function HomeContent() {
 		<StyledHomeContent>
 			<StyledTextSection>
 				<h1>
-					Hi, i'm <p>Mouhib Ouni</p>
+					Hi, i'm
+					<Typewriter />
 				</h1>
 				<h2>Junior Software developer</h2>
 				<p>

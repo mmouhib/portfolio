@@ -24,7 +24,8 @@ const StyledNav = styled.nav`
 	display: flex;
 	justify-content: space-around;
 	width: 33%;
-	font-family: Inter, serif;
+
+	font-family: Consolas, sans-serif;
 	font-weight: 400;
 	@media (max-width: 1000px) {
 		display: none;
