@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import HelpCommand from './commands/helpCommand';
 import SocialsCommand from './commands/socialsCommand';
 
@@ -56,6 +56,15 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 	const [command, setCommand] = useState<string>('');
 	const [commandIsLaunched, setCommandIsLaunched] = useState<boolean>(false);
 
+	function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
+		if (e.key === 'Enter') {
+			setCommandIsLaunched(true);
+			props.setCommandsArray([...props.commandsArray, '']);
+			//used array in next line to avoid double if statements.
+			if (['clear', 'cls'].includes(command.toLowerCase())) props.clearer();
+		}
+	}
+
 	return (
 		<StyledConsoleCommand>
 			<CommandSection>
@@ -71,17 +80,8 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 							onChange={(e: ChangeEvent<HTMLInputElement>) => {
 								setCommand(e.target.value);
 							}}
-							onKeyDown={(e) => {
-								if (e.key === 'Enter') {
-									setCommandIsLaunched(true);
-									props.setCommandsArray([...props.commandsArray, '']);
-									if (
-										command.toLowerCase() == 'clear' ||
-										command.toLowerCase() == 'cls'
-									) {
-										props.clearer();
-									}
-								}
+							onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
+								keyDownHandler(e);
 							}}
 						/>
 					)}
