@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import HelpCommand from './commands/helpCommand';
 import SocialsCommand from './commands/socialsCommand';
+import InfoCommand from './commands/infoCommand';
 
 interface ConsoleCommandProps {
 	path: string;
@@ -88,7 +89,8 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 				</div>
 			</CommandSection>
 			{/*<HelpCommand />*/}
-			<p>{commandIsLaunched && <SocialsCommand />}</p>
+			{/*<SocialsCommand />*/}
+			<p>{commandIsLaunched && <InfoCommand />}</p>
 		</StyledConsoleCommand>
 	);
 }
