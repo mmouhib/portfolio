@@ -3,6 +3,7 @@ import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import HelpCommand from './commands/helpCommand';
 import SocialsCommand from './commands/socialsCommand';
 import InfoCommand from './commands/infoCommand';
+import ErrorCommand from './commands/errorCommand';
 
 interface ConsoleCommandProps {
 	path: string;
@@ -57,6 +58,8 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 	const [command, setCommand] = useState<string>('');
 	const [commandIsLaunched, setCommandIsLaunched] = useState<boolean>(false);
 
+	const commandsArray: string[] = ['cls', 'clear', 'help', 'info', 'socials'];
+
 	function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
 		if (e.key === 'Enter') {
 			setCommandIsLaunched(true);
@@ -88,9 +91,20 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 					)}
 				</div>
 			</CommandSection>
-			{/*<HelpCommand />*/}
-			{/*<SocialsCommand />*/}
-			<p>{commandIsLaunched && <InfoCommand />}</p>
+			<p>
+				{commandIsLaunched && (
+					<>
+						{!commandsArray.includes(command) && (
+							<ErrorCommand command={command} />
+						)}
+					</>
+				)}
+				{commandIsLaunched && <>{command == 'help' && <HelpCommand />}</>}
+				{commandIsLaunched && <>{command == 'info' && <InfoCommand />}</>}
+				{commandIsLaunched && (
+					<>{command == 'socials' && <SocialsCommand />}</>
+				)}
+			</p>
 		</StyledConsoleCommand>
 	);
 }
