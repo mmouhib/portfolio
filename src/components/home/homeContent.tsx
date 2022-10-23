@@ -24,12 +24,6 @@ const StyledTextSection = styled.div`
 	flex-direction: column;
 	gap: 2vh;
 
-	& p:first-child {
-		font-size: 2em;
-		color: ${colors.darkTheme.mainColor.normal};
-		font-family: 'JetBrains Mono', monospace;
-	}
-
 	& h2 {
 		color: #cecece;
 	}
@@ -61,7 +55,7 @@ export default function HomeContent() {
 		<StyledHomeContent>
 			<StyledTextSection>
 				<h1>
-					Hi, i'm
+					Hey there! i'm
 					<Typewriter />
 				</h1>
 				<h2>Junior Software developer</h2>

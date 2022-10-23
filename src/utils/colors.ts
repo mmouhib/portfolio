@@ -10,7 +10,7 @@ const colors = {
 		navbarNotSelectedColor: '#bbbbbb',
 	},
 	lightTheme: {
-		backgroundColor: '#fff',
+		backgroundColor: '#F6F9FE',
 		mainColor: {
 			normal: '#792AF5',
 			lighter: '#5a2aab',
