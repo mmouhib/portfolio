@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import colors from '../../utils/colors';
 
 const StyledTypewriter = styled.div`
-	border-right: 4px solid purple;
 	padding-right: 2px;
 	width: fit-content;
 	font-family: 'JetBrains Mono', sans-serif;
@@ -15,6 +14,7 @@ const StyledTypewriter = styled.div`
 export default function Typewriter() {
 	const name: string = 'Mouhib Ouni';
 	const [word, setWord] = useState<string>(name[0]);
+	const [showCursor, setShowCursor] = useState<boolean>(true);
 
 	useEffect(() => {
 		if (word.length < name.length) {
@@ -22,7 +22,20 @@ export default function Typewriter() {
 				setWord(word + name[word.length]);
 			}, 200);
 		}
+		if (word == name) setShowCursor(false);
 	}, [word]);
 
-	return <StyledTypewriter>{word}</StyledTypewriter>;
+	useEffect(() => {
+		setTimeout(() => {
+			setShowCursor(!showCursor);
+		}, 500);
+	}, [showCursor]);
+
+	return (
+		<StyledTypewriter
+			style={{ borderRight: showCursor ? '4px solid purple' : 'none' }}
+		>
+			{word}
+		</StyledTypewriter>
+	);
 }

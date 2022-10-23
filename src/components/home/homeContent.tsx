@@ -67,7 +67,7 @@ export default function HomeContent() {
 				<h2>Junior Software developer</h2>
 				<p>
 					Student and junior <span>mobile</span> and <span>web</span>{' '}
-					developer looking to enhance his skills and dive deep in the
+					developer looking to enhance his skills and dive deeper into the
 					software development field.
 				</p>
 			</StyledTextSection>
