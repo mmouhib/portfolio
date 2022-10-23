@@ -9,4 +9,9 @@
 
 body {
     font-family: "JetBrains Mono", sans-serif;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
 }

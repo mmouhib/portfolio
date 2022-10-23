@@ -76,6 +76,8 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 		}
 	}
 
+	//todo: fix input not autofocusing when loading command component.
+
 	return (
 		<StyledConsoleCommand>
 			<CommandSection>
@@ -87,7 +89,6 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 					) : (
 						<StyledInput
 							type="text"
-							autoFocus
 							onChange={(e: ChangeEvent<HTMLInputElement>) => {
 								setCommand(e.target.value);
 							}}
