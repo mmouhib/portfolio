@@ -18,11 +18,10 @@ export default function HelpCommand() {
 			<StyledHelpCommandsList>
 				<ul>
 					<li>clear</li>
-					<li>name</li>
-					<li>age</li>
+					<li>info</li>
 					<li>socials</li>
 					<li>help/man</li>
-					<li>projects</li>
+					{/*<li>projects</li>*/}
 				</ul>
 			</StyledHelpCommandsList>
 		</div>

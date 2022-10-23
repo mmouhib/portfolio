@@ -6,6 +6,7 @@ interface ConsoleTopBarProps {
 	path: string;
 }
 
+//todo: fix top bar hidden on content overflow.
 const StyledConsoleTopBar = styled.div`
 	width: 100%;
 	height: 9%;

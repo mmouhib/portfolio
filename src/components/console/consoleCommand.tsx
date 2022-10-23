@@ -58,7 +58,14 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 	const [command, setCommand] = useState<string>('');
 	const [commandIsLaunched, setCommandIsLaunched] = useState<boolean>(false);
 
-	const commandsArray: string[] = ['cls', 'clear', 'help', 'info', 'socials'];
+	const commandsArray: string[] = [
+		'cls',
+		'clear',
+		'help',
+		'man',
+		'info',
+		'socials',
+	];
 
 	function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
 		if (e.key === 'Enter') {
@@ -99,7 +106,9 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 						)}
 					</>
 				)}
-				{commandIsLaunched && <>{command == 'help' && <HelpCommand />}</>}
+				{commandIsLaunched && (
+					<>{['help', 'man'].includes(command) && <HelpCommand />}</>
+				)}
 				{commandIsLaunched && <>{command == 'info' && <InfoCommand />}</>}
 				{commandIsLaunched && (
 					<>{command == 'socials' && <SocialsCommand />}</>
