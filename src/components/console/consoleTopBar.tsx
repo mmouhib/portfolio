@@ -8,7 +8,8 @@ interface ConsoleTopBarProps {
 
 const StyledConsoleTopBar = styled.div`
 	width: 100%;
-	height: 5%;
+	height: 9%;
+	min-height: 35px;
 	background-color: #4205b7;
 	display: flex;
 	align-items: center;

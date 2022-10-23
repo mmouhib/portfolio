@@ -14,11 +14,10 @@ export default function ErrorCommand(props: ErrorCommandProps) {
 	return (
 		<StyledErrorCommand>
 			<p>
-				<span>{props.command}</span>
-				:Command Not found
+				<span>{props.command}</span>: Command Not found
 			</p>
 			<p>
-				Try using <span>Help</span> instead
+				Try using <span>help</span> instead
 			</p>
 		</StyledErrorCommand>
 	);
