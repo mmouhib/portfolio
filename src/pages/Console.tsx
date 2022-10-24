@@ -78,9 +78,10 @@ export default function Console() {
 				{clear && (
 					<StyledConsoleBody>
 						<StyledConsoleContent ref={ref}>
-							{commandsArray.map(() => {
+							{commandsArray.map((_: any, index: number) => {
 								return (
 									<ConsoleCommand
+										key={index}
 										clearer={clearConsole}
 										setClear={setClear}
 										commandsArray={commandsArray}
