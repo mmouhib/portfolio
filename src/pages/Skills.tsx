@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import colors from '../utils/colors';
 import SkillsTag from '../components/skills/skillsTag';
 import { useState } from 'react';
+import { tagLabelType } from '../utils/types';
 
 const StyledSkills = styled.div`
 	width: 100vw;
@@ -33,33 +34,26 @@ export default function Skills() {
 		false,
 	]);
 
+	const tagTypes: tagLabelType[] = [
+		'programming languages',
+		'frameworks',
+		'software',
+	];
+
 	return (
 		<StyledSkills>
 			<div className="tags-container">
-				<SkillsTag
-					key={0}
-					selectionArray={selectionArray}
-					setSelectionArray={setSelectionArray}
-					tagLabel="programming languages"
-					type="languages"
-					selected={selectionArray[0]}
-				/>
-				<SkillsTag
-					key={1}
-					selectionArray={selectionArray}
-					setSelectionArray={setSelectionArray}
-					tagLabel="frameworks"
-					type="frameworks"
-					selected={selectionArray[1]}
-				/>
-				<SkillsTag
-					key={2}
-					selectionArray={selectionArray}
-					setSelectionArray={setSelectionArray}
-					tagLabel="software"
-					type="software"
-					selected={selectionArray[2]}
-				/>
+				{tagTypes.map((element: tagLabelType, index: number) => {
+					return (
+						<SkillsTag
+							key={index}
+							selectionArray={selectionArray}
+							setSelectionArray={setSelectionArray}
+							type={element}
+							selected={selectionArray[0]}
+						/>
+					);
+				})}
 				<span>select all </span>
 				<span>reset all</span>
 			</div>

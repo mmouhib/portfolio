@@ -5,11 +5,11 @@ import colors from '../../utils/colors';
 import { SiRobotframework } from 'react-icons/Si';
 import { TbLanguage } from 'react-icons/Tb';
 import { AiOutlineAppstoreAdd } from 'react-icons/Ai';
+import { tagLabelType } from '../../utils/types';
 
 interface TagProps {
 	selected: boolean;
-	tagLabel: string;
-	type: 'languages' | 'frameworks' | 'software';
+	type: tagLabelType;
 	selectionArray: boolean[];
 	setSelectionArray: (arg: boolean[]) => void;
 	key: number;
@@ -32,43 +32,40 @@ const StyledTag = styled.div`
 `;
 
 export default function SkillsTag(props: TagProps) {
+	/**
+	 * we use typeToIconMapper to get the icon component that corresponds to each type.
+	 * after, we determine that icon and store it in the 'CorrectIcon' variable and render it
+	 * using that name (CorrectIcon).
+	 * all that to follow DRY conventions and to avoid nested ternaries and conditional rendering.
+	 * => see previous commit to see the worse version of the component.
+	 */
+	const typeToIconMapper: any = {
+		'programming languages': TbLanguage,
+		frameworks: SiRobotframework,
+		software: AiOutlineAppstoreAdd,
+	};
+
+	const CorrectIcon: any = typeToIconMapper[props.type];
+
 	const [active, setActive] = useState(props.selected);
 
-	return (
-		<StyledTag
-			onClick={() => {
-				setActive(!active);
-			}}
-			style={{
-				backgroundColor: active ? 'transparent' : '#bbace8',
-			}}
-		>
-			{props.type == 'languages' ? (
-				<TbLanguage
-					color={active ? 'white' : colors.darkTheme.mainColor.darker}
-					size={17}
-				/>
-			) : props.type == 'frameworks' ? (
-				<SiRobotframework
-					color={active ? 'white' : colors.darkTheme.mainColor.darker}
-					size={17}
-				/>
-			) : (
-				props.type == 'software' && (
-					<AiOutlineAppstoreAdd
-						color={active ? 'white' : colors.darkTheme.mainColor.darker}
-						size={17}
-					/>
-				)
-			)}
+	const iconColor: string = active
+		? 'white'
+		: colors.darkTheme.mainColor.darker;
 
-			<span
-				style={{
-					color: active ? 'white' : colors.darkTheme.mainColor.darker,
-				}}
-			>
-				{props.tagLabel}
-			</span>
+	const changingStyle: object = {
+		backgroundColor: active ? 'transparent' : '#bbace8',
+		color: active ? 'white' : colors.darkTheme.mainColor.darker,
+	};
+
+	const _onClick = () => {
+		setActive(!active);
+	};
+
+	return (
+		<StyledTag onClick={_onClick} style={changingStyle}>
+			<CorrectIcon color={iconColor} size={17} />
+			<span style={changingStyle}>{props.type}</span>
 		</StyledTag>
 	);
 }
