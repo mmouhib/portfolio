@@ -29,9 +29,9 @@ const StyledSkills = styled.div`
 
 export default function Skills() {
 	const [selectionArray, setSelectionArray] = useState<boolean[]>([
-		false,
 		true,
 		false,
+		true,
 	]);
 
 	const tagTypes: tagLabelType[] = [
@@ -47,15 +47,27 @@ export default function Skills() {
 					return (
 						<SkillsTag
 							key={index}
+							index={index}
 							selectionArray={selectionArray}
 							setSelectionArray={setSelectionArray}
 							type={element}
-							selected={selectionArray[0]}
 						/>
 					);
 				})}
-				<span>select all </span>
-				<span>reset all</span>
+				<span
+					onClick={() => {
+						setSelectionArray([true, true, true]);
+					}}
+				>
+					select all
+				</span>
+				<span
+					onClick={() => {
+						setSelectionArray([false, false, false]);
+					}}
+				>
+					reset all
+				</span>
 			</div>
 		</StyledSkills>
 	);
