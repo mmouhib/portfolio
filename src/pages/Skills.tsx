@@ -42,6 +42,14 @@ export default function Skills() {
 		'databases',
 	];
 
+	const resetArray = (): void => {
+		setSelectionArray([false, false, false, false]);
+	};
+
+	const selectAll = (): void => {
+		setSelectionArray([true, true, true, true]);
+	};
+
 	return (
 		<StyledSkills>
 			<div className="tags-container">
@@ -56,20 +64,8 @@ export default function Skills() {
 						/>
 					);
 				})}
-				<span
-					onClick={() => {
-						setSelectionArray([true, true, true, true]);
-					}}
-				>
-					select all
-				</span>
-				<span
-					onClick={() => {
-						setSelectionArray([false, false, false, false]);
-					}}
-				>
-					reset all
-				</span>
+				<span onClick={selectAll}>select all</span>
+				<span onClick={resetArray}>reset all</span>
 			</div>
 		</StyledSkills>
 	);
