@@ -30,7 +30,7 @@ const StyledSkills = styled.div`
 export default function Skills() {
 	const [selectionArray, setSelectionArray] = useState<boolean[]>([
 		true,
-		false,
+		true,
 		true,
 	]);
 
