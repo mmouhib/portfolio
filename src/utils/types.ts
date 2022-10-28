@@ -1,1 +1,5 @@
-export type tagLabelType = 'programming languages' | 'frameworks' | 'software';
+export type tagLabelType =
+	| 'programming languages'
+	| 'frameworks'
+	| 'software'
+	| 'databases';

@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
 import colors from '../../utils/colors';
 
 import { SiRobotframework } from 'react-icons/Si';
 import { TbLanguage } from 'react-icons/Tb';
 import { AiOutlineAppstoreAdd } from 'react-icons/Ai';
 import { tagLabelType } from '../../utils/types';
+import { DiDatabase } from 'react-icons/Di';
 
 interface TagProps {
 	type: tagLabelType;
 	selectionArray: boolean[];
 	setSelectionArray: (arg: boolean[]) => void;
-	index: number;
+	id: number;
 }
 
 const StyledTag = styled.div`
@@ -42,20 +42,21 @@ export default function SkillsTag(props: TagProps) {
 		'programming languages': TbLanguage,
 		frameworks: SiRobotframework,
 		software: AiOutlineAppstoreAdd,
+		databases: DiDatabase,
 	};
 
 	const CorrectIcon: any = typeToIconMapper[props.type];
 
-	const iconColor: string = props.selectionArray[props.index]
+	const iconColor: string = props.selectionArray[props.id]
 		? colors.darkTheme.mainColor.darker
 		: 'white';
 
 	const changingStyle: object = {
-		backgroundColor: props.selectionArray[props.index]
+		backgroundColor: props.selectionArray[props.id]
 			? '#bbace8'
 			: 'transparent',
 
-		color: props.selectionArray[props.index]
+		color: props.selectionArray[props.id]
 			? colors.darkTheme.mainColor.darker
 			: 'white',
 	};
@@ -63,7 +64,7 @@ export default function SkillsTag(props: TagProps) {
 	const _onClick = () => {
 		props.setSelectionArray(
 			props.selectionArray.map((element: boolean, index: number) => {
-				if (index == props.index) return !element;
+				if (index == props.id) return !element;
 				return element;
 			})
 		);

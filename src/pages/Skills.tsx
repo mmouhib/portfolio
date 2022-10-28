@@ -32,12 +32,14 @@ export default function Skills() {
 		true,
 		true,
 		true,
+		true,
 	]);
 
 	const tagTypes: tagLabelType[] = [
 		'programming languages',
 		'frameworks',
 		'software',
+		'databases',
 	];
 
 	return (
@@ -47,7 +49,7 @@ export default function Skills() {
 					return (
 						<SkillsTag
 							key={index}
-							index={index}
+							id={index}
 							selectionArray={selectionArray}
 							setSelectionArray={setSelectionArray}
 							type={element}
@@ -56,14 +58,14 @@ export default function Skills() {
 				})}
 				<span
 					onClick={() => {
-						setSelectionArray([true, true, true]);
+						setSelectionArray([true, true, true, true]);
 					}}
 				>
 					select all
 				</span>
 				<span
 					onClick={() => {
-						setSelectionArray([false, false, false]);
+						setSelectionArray([false, false, false, false]);
 					}}
 				>
 					reset all
