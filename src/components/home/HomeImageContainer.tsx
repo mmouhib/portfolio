@@ -3,7 +3,6 @@ import homeAvatar from '../../assets/homeAvatar.png';
 
 const StyledHomeImageContainer = styled.div`
 	width: 30%;
-	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -25,8 +24,6 @@ const StyledHomeImageContainer = styled.div`
 
 const StyledAvatarImage = styled.img`
 	width: 100%;
-	position: relative;
-	z-index: 1;
 
 	@media (max-width: 500px) {
 		width: 60%;
