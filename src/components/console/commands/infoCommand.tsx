@@ -1,15 +1,7 @@
 import styled from 'styled-components';
+import ageCalculator from '../../../static/ageCalculator';
 
 import { GiTunisia, GiMale } from 'react-icons/Gi';
-
-function ageDiff(): number {
-	//calculates the difference between current date and birthdate to get the age
-	const currentDateInMilliseconds: number = new Date().valueOf();
-	const birthdateMilliseconds: number = new Date('08/31/2001').valueOf();
-	const diff: number =
-		(currentDateInMilliseconds - birthdateMilliseconds) / 31556952000;
-	return Math.round(diff);
-}
 
 const StyledInfoCommand = styled.div`
 	display: flex;
@@ -29,7 +21,7 @@ export default function InfoCommand() {
 				name: <InfoDetails>Mouhib Ouni</InfoDetails>
 			</span>
 			<span>
-				age: <InfoDetails>{ageDiff()}</InfoDetails>
+				age: <InfoDetails>{ageCalculator()}</InfoDetails>
 			</span>
 			<span>
 				nationality{' '}
