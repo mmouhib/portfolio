@@ -1,26 +1,25 @@
 import styled from 'styled-components';
 import colors from '../utils/colors';
-import Greeting from '../assets/greetings.png';
-import LanguageProgress from '../components/aboutMe/LanguageProgress';
+import Timeline from '../components/aboutMe/Timeline';
+import AboutMeContent from '../components/aboutMe/AboutMeContent';
 
-const StyledAboutMe = styled.div`
-	width: 100vw;
-	height: 100vh;
+const StyledSkills = styled.div`
 	background-color: ${colors.darkTheme.backgroundColor};
-`;
+	padding: 2vh 3vw;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
 
-const StyledImageContainer = styled.img`
-	width: 150px;
-	height: 150px;
+	@media (max-width: 900px) {
+		flex-direction: column;
+	}
 `;
 
 export default function AboutMe() {
 	return (
-		<StyledAboutMe>
-			<div>
-				<LanguageProgress level={3} />
-			</div>
-			{/*<StyledImageContainer src={Greeting} alt="greeting" />*/}
-		</StyledAboutMe>
+		<StyledSkills>
+			<AboutMeContent />
+			<Timeline />
+		</StyledSkills>
 	);
 }

@@ -1,26 +1,35 @@
 import styled from 'styled-components';
 
-import { AiFillStar, AiOutlineStar } from 'react-icons/Ai';
-
 interface LanguageProgressProps {
-	level: number;
+	level: string;
+	language: string;
 }
 
-const StyledLanguageProgress = styled.div``;
+const StyledLanguageProgress = styled.div`
+	width: 200px;
+	border: 2px solid #902c93;
+	height: 13px;
+	border-radius: 10px;
+	background: rgba(121, 104, 104, 0.21);
+`;
 
 export default function LanguageProgress(props: LanguageProgressProps) {
 	return (
-		<StyledLanguageProgress>
-			{/*{[...Array(5)].map((_, index) => {*/}
-			{/*	if (index < props.level)*/}
-			{/*		return <AiFillStar key={index} color="white" size={25} />;*/}
-			{/*	return <AiOutlineStar key={index} color="white" size={25} />;*/}
-			{/*})}*/}
-
+		<div>
 			<div>
-				
+				<span>
+					{props.language} {props.level}
+				</span>
 			</div>
-
-		</StyledLanguageProgress>
+			<StyledLanguageProgress>
+				<div
+					style={{
+						height: '100%',
+						width: props.level.toString(),
+						background: '#bd56bd',
+					}}
+				></div>
+			</StyledLanguageProgress>
+		</div>
 	);
 }
