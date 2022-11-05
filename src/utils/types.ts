@@ -1,5 +1,14 @@
+import { IconType } from 'react-icons';
+
 export type tagLabelType =
 	| 'programming languages'
 	| 'frameworks'
 	| 'software'
 	| 'databases';
+
+export interface ITimeline {
+	title: string;
+	duration: string;
+	icon: IconType;
+	content: string;
+}

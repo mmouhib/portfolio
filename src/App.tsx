@@ -6,7 +6,7 @@ import Skills from './pages/Skills';
 export default function App() {
 	return (
 		<>
-			<Home />
+			{/*<Home />*/}
 			{/*<Console />*/}
 			{/*<AboutMe />*/}
 			<Skills />
