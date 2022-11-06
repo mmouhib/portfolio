@@ -1,14 +1,6 @@
-import styled from 'styled-components';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import colors from '../../utils/colors';
-
-const StyledTypewriter = styled.div`
-	padding-right: 2px;
-	width: fit-content;
-	font-family: 'JetBrains Mono', sans-serif;
-	font-size: 4vw;
-	color: ${colors.darkTheme.mainColor.normal};
-`;
+import '../../styles/home/typewrite.scss';
 
 //todo: fix responsive design
 export default function Typewriter() {
@@ -32,10 +24,11 @@ export default function Typewriter() {
 	}, [showCursor]);
 
 	return (
-		<StyledTypewriter
+		<div
+			className="typewriter"
 			style={{ borderRight: showCursor ? '4px solid purple' : 'none' }}
 		>
 			{word}
-		</StyledTypewriter>
+		</div>
 	);
 }

@@ -17,9 +17,7 @@ export default function LanguageProgress(props: LanguageProgressProps) {
 	return (
 		<div>
 			<div>
-				<span>
-					{props.language} {props.level}
-				</span>
+				{props.language} {props.level}
 			</div>
 			<StyledLanguageProgress>
 				<div

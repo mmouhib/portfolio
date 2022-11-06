@@ -1,41 +1,29 @@
-import styled from 'styled-components';
 import ageCalculator from '../../../static/ageCalculator';
-
 import { GiTunisia, GiMale } from 'react-icons/Gi';
-
-const StyledInfoCommand = styled.div`
-	display: flex;
-	align-items: self-start;
-	justify-content: center;
-	flex-direction: column;
-`;
-
-const InfoDetails = styled.span`
-	color: #87dccb;
-`;
+import '../../../styles/console/commands/infoCommand.scss';
 
 export default function InfoCommand() {
 	return (
-		<StyledInfoCommand>
+		<div className="info-command-container">
 			<span>
-				name: <InfoDetails>Mouhib Ouni</InfoDetails>
+				name: <span>Mouhib Ouni</span>
 			</span>
 			<span>
-				age: <InfoDetails>{ageCalculator()}</InfoDetails>
+				age: <span>{ageCalculator()}</span>
 			</span>
 			<span>
 				nationality{' '}
-				<InfoDetails>
+				<span>
 					{' '}
 					<GiTunisia size={19} color="red" /> Tunisian
-				</InfoDetails>
+				</span>
 			</span>
 			<span>
 				gender{' '}
-				<InfoDetails>
+				<span>
 					<GiMale color="red" /> Male
-				</InfoDetails>
+				</span>
 			</span>
-		</StyledInfoCommand>
+		</div>
 	);
 }

@@ -4,28 +4,28 @@ import SkillsTag from './skillsTag';
 import { useState } from 'react';
 
 const StyledTagsSelection = styled.div`
-  & .tags-container {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2vw;
+	& .tags-container {
+		width: 90%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2vw;
 
-    background-color: #331267;
-    padding: 100px;
-    border-radius: 10px;
-  }
+		background-color: #331267;
+		padding: 100px;
+		border-radius: 10px;
+	}
 
-  & span {
-    color: white;
-    cursor: pointer;
-    user-select: none;
-  }
+	& span {
+		color: white;
+		cursor: pointer;
+		user-select: none;
+	}
 
-  & h1 {
-    color: white;
-    margin-bottom: 30px;
-  }
+	& h1 {
+		color: white;
+		margin-bottom: 30px;
+	}
 `;
 
 export default function TagsSelection() {

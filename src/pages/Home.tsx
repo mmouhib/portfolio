@@ -1,20 +1,12 @@
-import styled from 'styled-components';
-import colors from '../utils/colors';
 import Navbar from '../components/home/navbar';
 import HomeContent from '../components/home/homeContent';
-
-const StyledHome = styled.div`
-	width: 100vw;
-	height: 100vh;
-	background-color: ${colors.darkTheme.backgroundColor};
-	font-family: 'JetBrains Mono', sans-serif;
-`;
+import '../styles/pages/Home.scss';
 
 export default function Home() {
 	return (
-		<StyledHome>
+		<div className="home-page" data-theme="dark">
 			<Navbar />
 			<HomeContent />
-		</StyledHome>
+		</div>
 	);
 }

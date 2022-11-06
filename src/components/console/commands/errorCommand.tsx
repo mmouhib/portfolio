@@ -1,24 +1,19 @@
 import styled from 'styled-components';
+import '../../../styles/console/commands/errorCommand.scss';
 
 interface ErrorCommandProps {
 	command: string;
 }
 
-const StyledErrorCommand = styled.div`
-	& span {
-		color: red;
-	}
-`;
-
 export default function ErrorCommand(props: ErrorCommandProps) {
 	return (
-		<StyledErrorCommand>
+		<div className="error-command-container">
 			<p>
 				<span>{props.command}</span>: Command Not found
 			</p>
 			<p>
 				Try using <span>help</span> instead
 			</p>
-		</StyledErrorCommand>
+		</div>
 	);
 }
