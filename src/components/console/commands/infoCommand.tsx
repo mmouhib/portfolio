@@ -1,5 +1,5 @@
 import ageCalculator from '../../../static/ageCalculator';
-import { GiTunisia, GiMale } from 'react-icons/Gi';
+import { GiTunisia, GiMale } from 'react-icons/gi';
 import '../../../styles/console/commands/infoCommand.scss';
 
 export default function InfoCommand() {

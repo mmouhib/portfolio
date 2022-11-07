@@ -1,6 +1,6 @@
 import '../../../styles/console/commands/socialsCommand.scss';
-import { MdEmail } from 'react-icons/Md';
-import { BsInstagram, BsTwitter, BsFacebook, BsLinkedin } from 'react-icons/Bs';
+import { MdEmail } from 'react-icons/md';
+import { BsInstagram, BsTwitter, BsFacebook, BsLinkedin } from 'react-icons/bs';
 
 export default function SocialsCommand() {
 	return (

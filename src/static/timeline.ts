@@ -1,6 +1,6 @@
 import { ITimeline } from '../utils/types';
-import { TbSchool } from 'react-icons/Tb';
-import { MdOutlineWork } from 'react-icons/Md';
+import { TbSchool } from 'react-icons/tb';
+import { MdOutlineWork } from 'react-icons/md';
 
 const timelineMilestones: ITimeline[] = [
 	{

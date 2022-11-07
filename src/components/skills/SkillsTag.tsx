@@ -1,11 +1,11 @@
 import colors from '../../utils/colors';
 import '../../styles/skills/SkillsTag.scss';
 
-import { SiRobotframework } from 'react-icons/Si';
-import { TbLanguage } from 'react-icons/Tb';
-import { AiOutlineAppstoreAdd } from 'react-icons/Ai';
+import { SiRobotframework } from 'react-icons/si';
+import { FaLanguage } from 'react-icons/fa';
+import { AiOutlineAppstoreAdd } from 'react-icons/ai';
+import { DiDatabase } from 'react-icons/di';
 import { tagLabelType } from '../../utils/types';
-import { DiDatabase } from 'react-icons/Di';
 
 interface TagProps {
 	type: tagLabelType;
@@ -23,7 +23,7 @@ export default function SkillsTag(props: TagProps) {
 	 * => see previous commit to see the worse version of the component.
 	 */
 	const typeToIconMapper: any = {
-		'programming languages': TbLanguage,
+		'programming languages': FaLanguage,
 		frameworks: SiRobotframework,
 		software: AiOutlineAppstoreAdd,
 		databases: DiDatabase,

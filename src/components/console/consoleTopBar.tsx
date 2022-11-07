@@ -1,5 +1,5 @@
-import { VscChromeMaximize, VscChromeMinimize } from 'react-icons/Vsc';
-import { MdOutlineClose } from 'react-icons/Md';
+import { VscChromeMaximize, VscChromeMinimize } from 'react-icons/vsc';
+import { MdOutlineClose } from 'react-icons/md';
 import '../../styles/console/consoleTopBar.scss';
 
 interface ConsoleTopBarProps {
