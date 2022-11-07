@@ -6,9 +6,10 @@ import '../../styles/aboutMe/Timeline.scss';
 export default function Timeline() {
 	return (
 		<div className="timeline-container">
-			{timelineMilestones.map((element: ITimeline) => {
+			{timelineMilestones.map((element: ITimeline, index: number) => {
 				return (
 					<TimelineItem
+						key={index}
 						content={element.content}
 						duration={element.duration}
 						title={element.title}
