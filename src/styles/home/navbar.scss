@@ -20,6 +20,9 @@
     width: 33%;
     font-family: Consolas, sans-serif;
     font-weight: 400;
+    @media (max-width: 1000px) {
+      display: none;
+    }
   }
 
   & .btn {
@@ -29,11 +32,6 @@
     border-radius: 4px;
     font-weight: bold;
   }
-
-  @media (max-width: 1000px) {
-    & .nav {
-      display: none;
-    }
-  }
+  
 }
 

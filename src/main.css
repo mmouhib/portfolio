@@ -4,7 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root {
-    --bg: #11081F
+    --bg: #11081F;
+    --main: #792AF5;
 }
 
 [data-theme = 'dark'] {

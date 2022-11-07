@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import '../../../styles/console/commands/errorCommand.scss';
 
 interface ErrorCommandProps {

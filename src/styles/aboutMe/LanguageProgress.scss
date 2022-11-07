@@ -1,0 +1,12 @@
+.language-progress-bar-container {
+  width: 200px;
+  border: 2px solid #902c93;
+  height: 13px;
+  border-radius: 10px;
+  background: rgba(121, 104, 104, 0.21);
+
+  & div {
+    height: 100%;
+    background: #bd56bd;
+  }
+}

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import colors from '../../utils/colors';
+import '../../styles/skills/SkillsTag.scss';
 
 import { SiRobotframework } from 'react-icons/Si';
 import { TbLanguage } from 'react-icons/Tb';
@@ -13,22 +13,6 @@ interface TagProps {
 	setSelectionArray: (arg: boolean[]) => void;
 	id: number;
 }
-
-const StyledTag = styled.div`
-	font-family: 'JetBrains Mono', monospace;
-	width: fit-content;
-	font-size: 0.7em;
-	padding: 3px 7px;
-	border-radius: 6px;
-	cursor: pointer;
-	user-select: none;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-	border: 2px solid ${colors.darkTheme.mainColor.normal};
-`;
 
 export default function SkillsTag(props: TagProps) {
 	/**
@@ -71,9 +55,9 @@ export default function SkillsTag(props: TagProps) {
 	};
 
 	return (
-		<StyledTag onClick={_onClick} style={changingStyle}>
+		<div className="skills-tag" onClick={_onClick} style={changingStyle}>
 			<CorrectIcon color={iconColor} size={17} />
 			<span style={changingStyle}>{props.type}</span>
-		</StyledTag>
+		</div>
 	);
 }
