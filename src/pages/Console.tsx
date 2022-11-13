@@ -23,7 +23,7 @@ export default function Console() {
 	}
 
 	return (
-		<div className="console-container">
+		<div className="console-container" id="console">
 			<div className="console">
 				<ConsoleTopBar path={path} />
 				{clear && (

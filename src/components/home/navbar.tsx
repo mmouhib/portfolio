@@ -5,7 +5,9 @@ export default function Navbar() {
 		<div className="nav-container">
 			<div className="logo"> {'>'}_mouhib</div>
 			<nav className="nav">
-				<span>Home</span>
+				<span>
+					<a href="#console">Home</a>
+				</span>
 				<span>About Me</span>
 				<span>Portfolio</span>
 				<span>Stats</span>
