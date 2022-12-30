@@ -1,65 +1,67 @@
 .contact-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--bg);
 
+	& .contact-content {
+		width: 100vw;
+		height: 95%;
+		font-family: sans-serif;
+		font-weight: 600;
+		font-size: 6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 3vh;
+		color: lightgray;
+		user-select: none;
+	}
 
-  & .contact-content {
-    width: 100vw;
-    height: 95%;
-    font-family: sans-serif;
-    font-weight: 600;
-    font-size: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 3vh;
-    color: lightgray;
-    user-select: none;
-  }
+	& .button {
+		border-radius: 7px;
+		font-size: 1.5rem;
+		padding: 10px;
+		background-color: var(--main);
+		color: white;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		transition: color 1s ease-in-out, background-color 0.5s ease-in-out;
 
-  & .button {
-    border-radius: 7px;
-    font-size: 1.5rem;
-    padding: 10px;
-    background-color: var(--main);
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: color 1s ease-in-out, background-color .5s ease-in-out;
+		&:hover {
+			background-color: white;
+			color: var(--main);
+		}
+	}
 
+	//#1b1e2d
 
-    &:hover {
-      background-color: white;
-      color: var(--main);
-    }
-  }
+	& .socials-links-container {
+		& a {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-  //#1b1e2d
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1vw;
+	}
 
-  & .socials-links-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1vw;
-
-    & * {
-      cursor: pointer;
-    }
-  }
-
-  & .contact-copyrights {
-    height: 5%;
-    width: 100vw;
-    text-align: center;
-    color: lightgray;
-  }
+	& .contact-copyrights {
+		height: 5%;
+		width: 100vw;
+		text-align: center;
+		color: lightgray;
+		user-select: none;
+	}
 }
