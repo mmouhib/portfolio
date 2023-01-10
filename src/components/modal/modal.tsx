@@ -1,15 +1,22 @@
-import { useState } from 'react';
 import Modal from 'react-modal';
 
-const customStyles = {
+const customModalStyles: Modal.Styles = {
 	content: {
+		width: '50%',
+		height: '50%',
 		top: '50%',
 		left: '50%',
 		right: 'auto',
 		bottom: 'auto',
-		marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
+		marginRight: '-50%',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
+	// overlay: {
+	// 	background: 'transparent',
+	// },
 };
 
 interface IModalProps {
@@ -27,10 +34,11 @@ export default function CustomModal({
 			onRequestClose={() => {
 				setModalIsOpen(false);
 			}}
-			style={customStyles}
+			style={customModalStyles}
 			contentLabel="contact-modal"
 		>
-			<h1>Modal content</h1>
+			<h1>Message me:</h1>
+			<input />
 		</Modal>
 	);
 }

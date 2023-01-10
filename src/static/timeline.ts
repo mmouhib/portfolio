@@ -4,7 +4,7 @@ import { MdOutlineWork } from 'react-icons/md';
 
 const timelineMilestones: ITimeline[] = [
 	{
-		title: 'baccalauréat',
+		title: 'baccalaureate',
 		duration: 'Jul. 2020',
 		content: 'Acquired the degree in information technology.',
 		icon: TbSchool,

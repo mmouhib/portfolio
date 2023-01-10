@@ -13,12 +13,21 @@ const links = {
 export default function Contact() {
 	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
+	// <a href={`mailto:${email}?subject=${subject || ""}&body=${body || ""}`}>
+	//     {props.children}
+	// </a>
+
 	return (
 		<div className="contact-container">
 			<Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
 			<div className="contact-content">
 				<p>Connect with me</p>
-				<div className="button">
+				<div
+					className="button"
+					onClick={() => {
+						setModalIsOpen(true);
+					}}
+				>
 					<IoIosContacts /> contact
 				</div>
 				<div className="socials-links-container">
