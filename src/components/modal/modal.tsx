@@ -1,22 +1,30 @@
 import Modal from 'react-modal';
+import { ContactUs } from './email';
+import '../../styles/modal/modalBody.scss';
+import { RiContactsLine } from 'react-icons/Ri';
 
 const customModalStyles: Modal.Styles = {
 	content: {
-		width: '50%',
-		height: '50%',
+		width: '30%',
+		height: '60%',
 		top: '50%',
 		left: '50%',
 		right: 'auto',
 		bottom: 'auto',
 		transform: 'translate(-50%, -50%)',
 		marginRight: '-50%',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
+		borderRadius: '4px',
+		padding: '0',
+		outline: 'none',
+		border: 'none',
+		backgroundColor: '#101010',
+		boxShadow:
+			'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
 	},
-	// overlay: {
-	// 	background: 'transparent',
-	// },
+	overlay: {
+		backdropFilter: 'blur(10px)',
+		backgroundColor: 'transparent',
+	},
 };
 
 interface IModalProps {
@@ -24,21 +32,24 @@ interface IModalProps {
 	setModalIsOpen: (arg: boolean) => void;
 }
 
-export default function CustomModal({
-	modalIsOpen,
-	setModalIsOpen,
-}: IModalProps) {
+export default function CustomModal(props: IModalProps) {
+	const closeModal = () => {
+		props.setModalIsOpen(false);
+	};
+
 	return (
 		<Modal
-			isOpen={modalIsOpen}
-			onRequestClose={() => {
-				setModalIsOpen(false);
-			}}
+			ariaHideApp={false}
+			isOpen={props.modalIsOpen}
+			onRequestClose={closeModal}
 			style={customModalStyles}
 			contentLabel="contact-modal"
 		>
-			<h1>Message me:</h1>
-			<input />
+			<div className="modal-content">
+				<h1>Contact me</h1>
+				{/*<RiContactsLine /> */}
+				<ContactUs />
+			</div>
 		</Modal>
 	);
 }

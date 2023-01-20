@@ -1,23 +1,26 @@
-.custom-input-container {
+.contact-input-form {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  width: 50%;
-  background-color: #1e1e1e;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 10px 50px;
-  border-radius: 7px;
-  padding: 0 10px;
+  flex-direction: column;
+  width: 80%;
+  gap: 10px;
 
-  & .icon {
-    height: 100%;
-    width: 20%;
+  & .names-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
-  & input {
+  & .contact-submit-button {
+    color: white;
+    width: 210px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  & textarea {
+    border-radius: 7px;
     outline: 0;
     border: 0;
     width: 110%;
