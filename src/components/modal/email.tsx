@@ -3,34 +3,31 @@ import emailjs from '@emailjs/browser';
 import '../../styles/modal/emailForm.scss';
 import colors from '../../utils/colors';
 import CustomInput from './customInput';
-import emailJsKeys from '../../creds';
 
-export const ContactUs = () => {
-	const form = useRef();
+export default function ContactUs() {
+	const form = useRef<HTMLFormElement>(null);
 
 	const sendEmail = (e: any) => {
 		e.preventDefault();
 
-		emailjs
-			.sendForm(
-				emailJsKeys.serviceId,
-				emailJsKeys.templateId,
-				// @ts-ignore
-				form.current,
-				emailJsKeys.publicKey
-			)
-			.then(
-				(result: any) => {
+		if (form.current) {
+			emailjs
+				.sendForm(
+					import.meta.env.VITE_SERVICE_ID,
+					import.meta.env.VITE_TEMPLATE_ID,
+					form.current,
+					import.meta.env.VITE_PUBLIC_KEY
+				)
+				.then((result: any) => {
 					console.log(result.text);
-				},
-				(error: any) => {
-					console.log(error.text);
-				}
-			);
+				})
+				.catch((err: any) => {
+					console.log(err);
+				});
+		}
 	};
 
 	return (
-		// @ts-ignore
 		<form className="contact-input-form" ref={form} onSubmit={sendEmail}>
 			<div className="names-container">
 				<CustomInput>
@@ -38,7 +35,7 @@ export const ContactUs = () => {
 						className="contact-input first-name"
 						placeholder="First Name"
 						type="text"
-						name="user_name"
+						name="first_name"
 					/>
 				</CustomInput>
 
@@ -73,4 +70,4 @@ export const ContactUs = () => {
 			/>
 		</form>
 	);
-};
+}
