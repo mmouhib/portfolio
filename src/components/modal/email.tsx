@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import '../../styles/modal/emailForm.scss';
 import CustomInput from './customInput';
-import { RiContactsLine } from 'react-icons/Ri';
+import { MdContactPage } from 'react-icons/md';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Alert from './alert';
@@ -51,7 +51,7 @@ export default function ContactUs(props: { closeModal: () => void }) {
 		<form className="contact-input-form" ref={form} onSubmit={sendEmail}>
 			{error && <Alert />}
 			<div className="names-container">
-				<CustomInput width="47%" icon={RiContactsLine}>
+				<CustomInput width="47%" icon={MdContactPage}>
 					<input
 						value={firstName}
 						onChange={(e) => {
