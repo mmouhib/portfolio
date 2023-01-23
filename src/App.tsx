@@ -12,10 +12,10 @@ export default function App() {
 					path="/"
 					element={
 						<>
-							<Contact />
 							<Home />
 							<Console />
 							<AboutMe />
+							<Contact />
 						</>
 					}
 				></Route>

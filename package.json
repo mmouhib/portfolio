@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@emailjs/browser": "^3.10.0",
+		"@types/react-icons": "^3.0.0",
 		"@types/react-modal": "^3.13.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

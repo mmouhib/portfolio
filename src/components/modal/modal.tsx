@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 import ContactUs from './email';
 import '../../styles/modal/modalBody.scss';
-import { RiContactsLine } from 'react-icons/Ri';
 
 const customModalStyles: Modal.Styles = {
 	content: {
@@ -47,8 +46,7 @@ export default function CustomModal(props: IModalProps) {
 		>
 			<div className="modal-content">
 				<h1>Contact me</h1>
-				{/*<RiContactsLine /> */}
-				<ContactUs />
+				<ContactUs closeModal={closeModal} />
 			</div>
 		</Modal>
 	);

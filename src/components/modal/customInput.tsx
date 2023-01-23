@@ -1,12 +1,18 @@
 import '../../styles/modal/customInput.scss';
 import React from 'react';
-import { RiContactsLine } from 'react-icons/Ri';
+import { IconType } from 'react-icons';
 
-export default function CustomInput(props: { children: React.ReactNode }) {
+interface ICustomInputProps {
+	children: React.ReactNode;
+	width: string;
+	icon: IconType;
+}
+
+export default function CustomInput(props: ICustomInputProps) {
 	return (
-		<div className="custom-input-container">
+		<div className="custom-input-container" style={{ width: props.width }}>
 			<div className="icon">
-				<RiContactsLine size={18} />
+				<props.icon size={18} />
 			</div>
 			{props.children}
 		</div>
