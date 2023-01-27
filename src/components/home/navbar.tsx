@@ -9,8 +9,6 @@ export default function Navbar() {
 					<a href="#console">Home</a>
 				</span>
 				<span>About Me</span>
-				<span>Portfolio</span>
-				<span>Stats</span>
 				<span>Contact</span>
 			</nav>
 			<div className="btn">Download CV</div>

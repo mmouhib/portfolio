@@ -1,73 +1,44 @@
 .about-me-left-side-container {
-  width: 70%;
-  height: 100vh;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+	width: 70%;
+	height: 100vh;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
 
-  & .about-me-left-side-animation-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	& .description {
+		width: 75%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-family: 'source code pro';
+		font-size: 1.5rem;
+		color: rgb(255, 245, 255);
 
-    & div {
-      width: 300px;
-      height: 300px;
-      border-radius: 30px;
+		& .hovered-sides {
+			transition: all 0.3s;
+			color: rgb(252, 171, 252);
+			font-weight: 700;
+		}
 
-      @media (max-width: 1200px) {
-        width: 35vw;
-      }
+		& .hovered {
+			transition: font-weight 1s;
 
-      @media (max-width: 900px) {
-        width: 60vw;
-      }
-    }
-  }
+			&:hover {
+				color: rgb(175, 18, 175);
+				font-weight: 900;
+			}
+		}
+	}
 
-  & .first-box {
-    position: absolute;
-    background: rgba(187, 187, 187, 0.44);
-    transform: rotate(10deg);
-    animation: box-animation 3s ease-in 1s infinite running;
-
-    @keyframes box-animation {
-      50% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(10deg);
-      }
-    }
-  }
-
-  & .content-box {
-    background: lightgrey;
-    padding: 50px;
-    display: flex;
-    z-index: 222;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--main);
-    text-align: center;
-
-    @media (max-width: 900px) {
-      font-size: 0.7rem;
-    }
-  }
-
-  & .language-progress-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    gap: 3vw;
-  }
-
+	& .language-progress-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 3vw;
+	}
 }

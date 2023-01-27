@@ -4,33 +4,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root {
-    --bg: #11081F;
-    --main: #792AF5;
+	--bg: #11081f;
+	--main: #792af5;
 }
 
-[data-theme = 'dark'] {
-    --bg: #11081F;
-    --main: #792AF5;
+[data-theme='dark'] {
+	--bg: #11081f;
+	--main: #792af5;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: "JetBrains Mono", sans-serif;
-    overflow-x: hidden;
+	font-family: 'JetBrains Mono', sans-serif;
+	overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
-    width: 0;
+	width: 0;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
