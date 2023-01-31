@@ -12,3 +12,8 @@ export interface ITimeline {
 	icon: IconType;
 	content: string;
 }
+
+export interface IModalProps {
+	modalIsOpen: boolean;
+	setModalIsOpen: (arg: boolean) => void;
+}

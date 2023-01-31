@@ -19,18 +19,17 @@ export default function AboutMeContent() {
 					{description.split('').map((element, index) => {
 						return (
 							<span
+								key={index}
 								onMouseEnter={() => {
 									setHovered(index);
 								}}
 								onMouseLeave={() => {
 									setHovered(-1);
 								}}
-								className={`description-letter ${
-									hovered == index && 'hovered'
-								}
-								${(index - 1 == hovered || index + 1 == hovered) && 'hovered-sides'}
-								`}
 								id={`description-letter-${index}`}
+								className={`description-letter 
+									${hovered == index && 'hovered'} 
+									${(index - 1 == hovered || index + 1 == hovered) && 'hovered-sides'}`}
 							>
 								{element}
 							</span>

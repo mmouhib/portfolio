@@ -1,7 +1,10 @@
 import Modal from 'react-modal';
-import ContactUs from './email';
-import '../../styles/modal/modalBody.scss';
+import '../../styles/home/resumeModal.scss';
 import { IModalProps } from '../../utils/types';
+import frenchIcon from '../../assets/flags/fr.png';
+import englishIcon from '../../assets/flags/eng.png';
+import englishResume from '../../assets/resumes/englishResume.pdf';
+import frenchResume from '../../assets/resumes/frenchResume.pdf';
 
 const customModalStyles: Modal.Styles = {
 	content: {
@@ -17,6 +20,7 @@ const customModalStyles: Modal.Styles = {
 		padding: '0',
 		outline: 'none',
 		border: 'none',
+		minWidth: '400px',
 		backgroundColor: '#101010',
 		boxShadow:
 			'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
@@ -27,7 +31,7 @@ const customModalStyles: Modal.Styles = {
 	},
 };
 
-export default function CustomModal(props: IModalProps) {
+export default function ResumeModal(props: IModalProps) {
 	const closeModal = () => {
 		props.setModalIsOpen(false);
 	};
@@ -38,11 +42,17 @@ export default function CustomModal(props: IModalProps) {
 			isOpen={props.modalIsOpen}
 			onRequestClose={closeModal}
 			style={customModalStyles}
-			contentLabel="contact-modal"
+			contentLabel="resume-modal"
 		>
 			<div className="modal-content">
-				<h1>Contact me</h1>
-				<ContactUs closeModal={closeModal} />
+				<a href={frenchResume} download="frenchResume" target="_blank">
+					<img src={frenchIcon} alt="french" />
+					<p>french</p>
+				</a>
+				<a href={englishResume} download="englishResume" target="_blank">
+					<img src={englishIcon} alt="french" />
+					<p>english</p>
+				</a>
 			</div>
 		</Modal>
 	);

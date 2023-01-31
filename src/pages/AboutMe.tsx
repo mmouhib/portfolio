@@ -4,7 +4,7 @@ import '../styles/pages/AboutMe.scss';
 
 export default function AboutMe() {
 	return (
-		<div className="about-me">
+		<div className="about-me" id="about-me">
 			<AboutMeContent />
 			<Timeline />
 		</div>

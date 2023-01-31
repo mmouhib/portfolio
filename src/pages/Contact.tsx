@@ -13,12 +13,8 @@ const links = {
 export default function Contact() {
 	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-	// <a href={`mailto:${email}?subject=${subject || ""}&body=${body || ""}`}>
-	//     {props.children}
-	// </a>
-
 	return (
-		<div className="contact-container">
+		<div className="contact-container" id="contact">
 			<Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
 			<div className="contact-content">
 				<p>Connect with me</p>
@@ -45,7 +41,7 @@ export default function Contact() {
 				</div>
 			</div>
 			<div className="contact-copyrights">
-				<p>© Ouni Mouhib 2022</p>
+				<p>© Ouni Mouhib {new Date().getFullYear()}</p>
 			</div>
 		</div>
 	);
