@@ -12,6 +12,7 @@ const links = {
 
 export default function Contact() {
 	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+	const [hoveredIcon, setHoveredIcon] = useState<string>('');
 
 	return (
 		<div className="contact-container" id="contact">
@@ -27,16 +28,67 @@ export default function Contact() {
 					<IoIosContacts /> contact
 				</div>
 				<div className="socials-links-container">
-					<a href={links.github}>
-						<AiFillGithub size={30} />
+					{/* icon one */}
+					<a
+						href={links.github}
+						id="one"
+						onMouseEnter={() => {
+							setHoveredIcon('one');
+						}}
+						onMouseLeave={() => {
+							setHoveredIcon('');
+						}}
+					>
+						<AiFillGithub
+							size={30}
+							color={
+								hoveredIcon == 'two' || hoveredIcon == 'three'
+									? 'grey'
+									: 'white'
+							}
+						/>
 					</a>
 
-					<a href={links.linkedIn}>
-						<AiFillLinkedin size={30} />
+					{/* icon two */}
+					<a
+						href={links.linkedIn}
+						id="two"
+						onMouseEnter={() => {
+							setHoveredIcon('two');
+						}}
+						onMouseLeave={() => {
+							setHoveredIcon('');
+						}}
+					>
+						<AiFillLinkedin
+							size={30}
+							color={
+								hoveredIcon == 'one' || hoveredIcon == 'three'
+									? 'grey'
+									: 'white'
+							}
+						/>
 					</a>
 
-					<a href={`mailto:${links.email}`}>
-						<AiOutlineMail size={30} />
+					{/* icon three */}
+					<a
+						href={`mailto:${links.email}`}
+						id="three"
+						onMouseEnter={() => {
+							setHoveredIcon('three');
+						}}
+						onMouseLeave={() => {
+							setHoveredIcon('');
+						}}
+					>
+						<AiOutlineMail
+							size={30}
+							color={
+								hoveredIcon == 'one' || hoveredIcon == 'two'
+									? 'grey'
+									: 'white'
+							}
+						/>
 					</a>
 				</div>
 			</div>

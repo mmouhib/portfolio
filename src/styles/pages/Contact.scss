@@ -33,7 +33,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
-		transition: color 1s ease-in-out, background-color 0.5s ease-in-out;
+		transition: color 1s ease-in-out, background-color 0.2s ease-in-out;
 
 		&:hover {
 			background-color: white;
@@ -41,9 +41,11 @@
 		}
 	}
 
-	//#1b1e2d
-
 	& .socials-links-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
 		& a {
 			padding: 0;
 			display: flex;
