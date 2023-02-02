@@ -1,40 +1,40 @@
 .console-commands-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.3vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.3vh;
 
-  & .commands-section {
-    font-weight: bold;
-    font-size: large;
-    display: flex;
-    flex-direction: row;
-    gap: 0.7vw;
-  }
+	& .commands-section {
+		font-weight: bold;
+		font-size: large;
+		display: flex;
+		flex-direction: row;
+		gap: 0.7vw;
+	}
 
-  & .path {
-    color: #adbce3;
-  }
+	& .path {
+		color: #adbce3;
+	}
 
-  & .input {
-    background-color: transparent;
-    border: 0;
-    color: #46ce25;
-    font-family: 'JetBrains Mono', sans-serif;
-    font-weight: bold;
-    font-size: large;
+	& input {
+		background-color: transparent;
+		border: 0;
+		color: #46ce25;
+		font-family: 'JetBrains Mono', sans-serif;
+		font-weight: bold;
+		font-size: large;
 
-    &:focus {
-      outline: 0;
-    }
-  }
+		&:focus {
+			outline: 0;
+		}
+	}
 
-  & .command-span {
-    background-color: transparent;
-    border: 0;
-    color: #46ce25;
-    font-family: 'JetBrains Mono', sans-serif;
-    font-weight: bold;
-    font-size: large;
-  }
+	& .command-span {
+		background-color: transparent;
+		border: 0;
+		color: #46ce25;
+		font-family: 'JetBrains Mono', sans-serif;
+		font-weight: bold;
+		font-size: large;
+	}
 }

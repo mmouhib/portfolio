@@ -17,25 +17,15 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 	const [command, setCommand] = useState<string>('');
 	const [commandIsLaunched, setCommandIsLaunched] = useState<boolean>(false);
 
-	const commandsArray: string[] = [
-		'cls',
-		'clear',
-		'help',
-		'man',
-		'info',
-		'socials',
-	];
+	const commandsArray: string[] = ['cls', 'clear', 'help', 'man', 'info', 'socials'];
 
 	function keyDownHandler(e: KeyboardEvent<HTMLInputElement>) {
 		if (e.key === 'Enter') {
 			setCommandIsLaunched(true);
 			props.setCommandsArray([...props.commandsArray, '']);
-			//used array in next line to avoid double if statements.
 			if (['clear', 'cls'].includes(command.toLowerCase())) props.clearer();
 		}
 	}
-
-	//todo: fix input not autofocusing when loading command component.
 
 	return (
 		<div className="console-commands-container">
@@ -47,8 +37,8 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 						<span className="command-span">{command}</span>
 					) : (
 						<input
-							className="input"
 							type="text"
+							autoFocus={window.location.href.endsWith('console')}
 							onChange={(e: ChangeEvent<HTMLInputElement>) => {
 								setCommand(e.target.value);
 							}}
@@ -59,22 +49,15 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 					)}
 				</div>
 			</div>
-			<p>
-				{commandIsLaunched && (
-					<>
-						{!commandsArray.includes(command) && (
-							<ErrorCommand command={command} />
-						)}
-					</>
-				)}
-				{commandIsLaunched && (
-					<>{['help', 'man'].includes(command) && <HelpCommand />}</>
-				)}
-				{commandIsLaunched && <>{command == 'info' && <InfoCommand />}</>}
-				{commandIsLaunched && (
-					<>{command == 'socials' && <SocialsCommand />}</>
-				)}
-			</p>
+
+			{commandIsLaunched && (
+				<>
+					{!commandsArray.includes(command) && <ErrorCommand command={command} />}
+					{['help', 'man'].includes(command) && <HelpCommand />}
+					{command == 'info' && <InfoCommand />}
+					{command == 'socials' && <SocialsCommand />}
+				</>
+			)}
 		</div>
 	);
 }
