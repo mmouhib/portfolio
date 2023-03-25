@@ -1,4 +1,4 @@
-import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail, AiFillGitlab } from 'react-icons/ai';
 import { IoIosContacts } from 'react-icons/io';
 import '../styles/pages/Contact.scss';
 import Modal from '../components/modal/modal';
@@ -6,13 +6,18 @@ import { useState } from 'react';
 
 const links = {
 	github: 'https://github.com/mmouhib',
+	gitlab: 'https://gitlab.com/mouhibb',
 	linkedIn: 'https://www.linkedin.com/in/mmouhib',
 	email: 'mouhibouni@outlook.com',
 };
 
 export default function Contact() {
 	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-	const [hoveredIcon, setHoveredIcon] = useState<string>('');
+	const [hoveredIconIndex, sethoveredIconIndex] = useState<string>('');
+
+	const clearHoveredIndex = (): void => {
+		sethoveredIconIndex('');
+	};
 
 	return (
 		<div className="contact-container" id="contact">
@@ -33,61 +38,51 @@ export default function Contact() {
 						href={links.github}
 						id="one"
 						onMouseEnter={() => {
-							setHoveredIcon('one');
+							sethoveredIconIndex('one');
 						}}
-						onMouseLeave={() => {
-							setHoveredIcon('');
-						}}
+						onMouseLeave={clearHoveredIndex}
 					>
-						<AiFillGithub
-							size={30}
-							color={
-								hoveredIcon == 'two' || hoveredIcon == 'three'
-									? 'grey'
-									: 'white'
-							}
-						/>
+						<AiFillGithub size={30} color={['', 'one'].includes(hoveredIconIndex) ? 'white' : 'grey'} />
+					</a>
+
+					<a
+						href={links.gitlab}
+						id="two"
+						onMouseEnter={() => {
+							sethoveredIconIndex('two');
+						}}
+						onMouseLeave={clearHoveredIndex}
+					>
+						<AiFillGitlab size={30} color={['', 'two'].includes(hoveredIconIndex) ? 'white' : 'grey'} />
 					</a>
 
 					{/* icon two */}
 					<a
 						href={links.linkedIn}
-						id="two"
+						id="three"
 						onMouseEnter={() => {
-							setHoveredIcon('two');
+							sethoveredIconIndex('three');
 						}}
-						onMouseLeave={() => {
-							setHoveredIcon('');
-						}}
+						onMouseLeave={clearHoveredIndex}
 					>
 						<AiFillLinkedin
 							size={30}
-							color={
-								hoveredIcon == 'one' || hoveredIcon == 'three'
-									? 'grey'
-									: 'white'
-							}
+							color={['', 'three'].includes(hoveredIconIndex) ? 'white' : 'grey'}
 						/>
 					</a>
 
 					{/* icon three */}
 					<a
 						href={`mailto:${links.email}`}
-						id="three"
+						id="four"
 						onMouseEnter={() => {
-							setHoveredIcon('three');
+							sethoveredIconIndex('four');
 						}}
-						onMouseLeave={() => {
-							setHoveredIcon('');
-						}}
+						onMouseLeave={clearHoveredIndex}
 					>
 						<AiOutlineMail
 							size={30}
-							color={
-								hoveredIcon == 'one' || hoveredIcon == 'two'
-									? 'grey'
-									: 'white'
-							}
+							color={['', 'four'].includes(hoveredIconIndex) ? 'white' : 'grey'}
 						/>
 					</a>
 				</div>
