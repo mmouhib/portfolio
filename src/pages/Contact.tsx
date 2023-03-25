@@ -19,17 +19,16 @@ export default function Contact() {
 		sethoveredIconIndex('');
 	};
 
+	const openModal = (): void => {
+		setModalIsOpen(true);
+	};
+
 	return (
 		<div className="contact-container" id="contact">
 			<Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
 			<div className="contact-content">
 				<p>Connect with me</p>
-				<div
-					className="button"
-					onClick={() => {
-						setModalIsOpen(true);
-					}}
-				>
+				<div className="button" onClick={openModal}>
 					<IoIosContacts /> contact
 				</div>
 				<div className="socials-links-container">
