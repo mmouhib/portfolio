@@ -66,4 +66,13 @@
 		color: lightgray;
 		user-select: none;
 	}
+
+	& .note {
+		color: rgb(255, 83, 83);
+		text-align: center;
+	}
+
+	& .note-container {
+		margin: 10px;
+	}
 }

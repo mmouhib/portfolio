@@ -86,8 +86,12 @@ export default function Contact() {
 					</a>
 				</div>
 			</div>
+			<div className="note-container">
+				<p className="note">Work in progress</p>
+				<p className="note">feel free to open issues on the project's github repo in my profile</p>
+			</div>
 			<div className="contact-copyrights">
-				<p>© Ouni Mouhib {new Date().getFullYear()}</p>
+				<p>© Ouni Mouhib {new Date().getFullYear()}</p>{' '}
 			</div>
 		</div>
 	);
