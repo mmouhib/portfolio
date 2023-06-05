@@ -32,6 +32,15 @@ const timelineMilestones: ITimeline[] = [
 			'Passed my second internship at The National Center for Training Trainers and Training Engineering (CENAFFIF)',
 		icon: MdOutlineWork,
 	},
+
+	{
+		title: 'Erasmus+ Participation',
+		duration: 'Feb. 2023 - July 2023',
+		content:
+			'I had the chance to participate into a student exchange' +
+			'program to pass an end of studies internship at the University of Piraues in Athens, Greece',
+		icon: TbSchool,
+	},
 ];
 
 export default timelineMilestones;
