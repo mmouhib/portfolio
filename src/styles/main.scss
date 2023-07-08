@@ -16,6 +16,11 @@
 	--main: #792af5;
 }
 
+[data-theme='light'] {
+	--bg: white;
+	--main: #792af5;
+}
+
 html {
 	scroll-behavior: smooth;
 }
