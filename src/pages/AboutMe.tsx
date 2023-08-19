@@ -1,12 +1,35 @@
 import AboutMeContent from '../components/aboutMe/AboutMeContent';
-import '../styles/pages/AboutMe.scss';
 import timelineMilestones from '../static/timeline';
 import { ITimeline } from '../utils/types';
 import TimelineItem from '../components/aboutMe/TimelineItem';
+import styled, { StyledComponent } from 'styled-components';
 
-export default function AboutMe() {
+const AboutMeComp: StyledComponent<'div', any> = styled.div`
+	background-color: var(--bg);
+	padding: 2vh 3vw;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+
+	& .timeline-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		@media (max-width: 900px) {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 900px) {
+		flex-direction: column;
+	}
+`;
+
+export default function AboutMe(): JSX.Element {
 	return (
-		<div className="about-me" id="about-me">
+		<AboutMeComp id="about-me">
 			<AboutMeContent />
 			<div className="timeline-container">
 				{timelineMilestones.map((element: ITimeline, index: number) => {
@@ -21,6 +44,6 @@ export default function AboutMe() {
 					);
 				})}
 			</div>
-		</div>
+		</AboutMeComp>
 	);
 }

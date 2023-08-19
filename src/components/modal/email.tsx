@@ -5,7 +5,7 @@ import CustomInput from './customInput';
 import { MdContactPage } from 'react-icons/md';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
-import Alert from './alert';
+import FormErrorAlert from './alert';
 
 export default function ContactUs(props: { closeModal: () => void }) {
 	const form = useRef<HTMLFormElement>(null);
@@ -49,7 +49,7 @@ export default function ContactUs(props: { closeModal: () => void }) {
 
 	return (
 		<form className="contact-input-form" ref={form} onSubmit={sendEmail}>
-			{error && <Alert />}
+			{error && <FormErrorAlert />}
 			<div className="names-container">
 				<CustomInput width="47%" icon={MdContactPage}>
 					<input

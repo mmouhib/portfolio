@@ -1,7 +1,7 @@
 import '../../styles/modal/alert.scss';
 import { MdError } from 'react-icons/md';
 
-export default function Alert() {
+export default function FormErrorAlert() {
 	return (
 		<div className="alert-container">
 			<MdError color="red" size={20} />

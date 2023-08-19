@@ -1,7 +1,55 @@
 import ConsoleTopBar from '../components/console/consoleTopBar';
 import { useEffect, useRef, useState } from 'react';
 import ConsoleCommand from '../components/console/consoleCommand';
-import '../styles/pages/Console.scss';
+import styled, { StyledComponent } from 'styled-components';
+
+const StyledConsole: StyledComponent<'div', any> = styled.div`
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.console {
+		width: 60%;
+		height: 70%;
+		background-color: #2b0473;
+		border-radius: 10px;
+		overflow: hidden;
+
+		@media (max-width: 1280px) {
+			width: 70%;
+			height: 70%;
+		}
+
+		@media (max-width: 850px) {
+			width: 90%;
+			height: 90%;
+		}
+	}
+
+	.console-box {
+		width: 100%;
+		height: 95%;
+		overflow: scroll;
+		//next two lines to remove scrollbars of the overflow
+		padding: 0 17px 17px 0;
+		box-sizing: content-box;
+	}
+
+	.console-content {
+		width: 90%;
+		height: 95%;
+		padding: 5%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 10%;
+		color: white;
+		font-family: 'JetBrains Mono', sans-serif;
+	}
+`;
 
 export default function Console() {
 	const [path, setPath] = useState<string>('~/dev/react/portfolio');
@@ -23,7 +71,7 @@ export default function Console() {
 	}
 
 	return (
-		<div className="console-container" id="console">
+		<StyledConsole id="console">
 			<div className="console">
 				<ConsoleTopBar path={path} />
 				{clear && (
@@ -45,6 +93,6 @@ export default function Console() {
 					</div>
 				)}
 			</div>
-		</div>
+		</StyledConsole>
 	);
 }

@@ -1,8 +1,8 @@
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail, AiFillGitlab } from 'react-icons/ai';
 import { IoIosContacts } from 'react-icons/io';
-import '../styles/pages/Contact.scss';
 import Modal from '../components/modal/modal';
 import { useState } from 'react';
+import styled from 'styled-components';
 
 const links = {
 	github: 'https://github.com/mmouhib',
@@ -11,12 +11,87 @@ const links = {
 	email: 'mouhibouni@outlook.com',
 };
 
+const StyledContact = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--bg);
+
+	& .contact-content {
+		width: 100vw;
+		height: 95%;
+		font-family: sans-serif;
+		font-weight: 600;
+		font-size: 6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 3vh;
+		color: lightgray;
+		user-select: none;
+	}
+
+	& .button {
+		border-radius: 7px;
+		font-size: 1.5rem;
+		padding: 10px;
+		background-color: var(--main);
+		color: white;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		transition: color 1s ease-in-out, background-color 0.2s ease-in-out;
+
+		&:hover {
+			background-color: white;
+			color: var(--main);
+		}
+	}
+
+	& .socials-links-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1vw;
+
+		& a {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	& .contact-copyrights {
+		height: 5%;
+		width: 100vw;
+		text-align: center;
+		color: lightgray;
+		user-select: none;
+	}
+
+	& .note {
+		color: rgb(255, 83, 83);
+		text-align: center;
+	}
+
+	& .note-container {
+		margin: 10px;
+	}
+`;
+
 export default function Contact() {
 	const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-	const [hoveredIconIndex, sethoveredIconIndex] = useState<string>('');
+	const [hoveredIconIndex, setHoveredIconIndex] = useState<string>('');
 
 	const clearHoveredIndex = (): void => {
-		sethoveredIconIndex('');
+		setHoveredIconIndex('');
 	};
 
 	const openModal = (): void => {
@@ -24,7 +99,7 @@ export default function Contact() {
 	};
 
 	return (
-		<div className="contact-container" id="contact">
+		<StyledContact id="contact">
 			<Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
 			<div className="contact-content">
 				<p>Connect with me</p>
@@ -37,7 +112,7 @@ export default function Contact() {
 						href={links.github}
 						id="one"
 						onMouseEnter={() => {
-							sethoveredIconIndex('one');
+							setHoveredIconIndex('one');
 						}}
 						onMouseLeave={clearHoveredIndex}
 					>
@@ -48,7 +123,7 @@ export default function Contact() {
 						href={links.gitlab}
 						id="two"
 						onMouseEnter={() => {
-							sethoveredIconIndex('two');
+							setHoveredIconIndex('two');
 						}}
 						onMouseLeave={clearHoveredIndex}
 					>
@@ -60,7 +135,7 @@ export default function Contact() {
 						href={links.linkedIn}
 						id="three"
 						onMouseEnter={() => {
-							sethoveredIconIndex('three');
+							setHoveredIconIndex('three');
 						}}
 						onMouseLeave={clearHoveredIndex}
 					>
@@ -75,7 +150,7 @@ export default function Contact() {
 						href={`mailto:${links.email}`}
 						id="four"
 						onMouseEnter={() => {
-							sethoveredIconIndex('four');
+							setHoveredIconIndex('four');
 						}}
 						onMouseLeave={clearHoveredIndex}
 					>
@@ -93,6 +168,6 @@ export default function Contact() {
 			<div className="contact-copyrights">
 				<p>© Ouni Mouhib {new Date().getFullYear()}</p>{' '}
 			</div>
-		</div>
+		</StyledContact>
 	);
 }
