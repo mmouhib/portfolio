@@ -1,11 +1,10 @@
 import colors from '../../utils/colors';
-import '../../styles/skills/SkillsTag.scss';
-
 import { SiRobotframework } from 'react-icons/si';
 import { FaLanguage } from 'react-icons/fa';
 import { AiOutlineAppstoreAdd } from 'react-icons/ai';
 import { DiDatabase } from 'react-icons/di';
 import { tagLabelType } from '../../utils/types';
+import styled from 'styled-components';
 
 interface TagProps {
 	type: tagLabelType;
@@ -13,6 +12,22 @@ interface TagProps {
 	setSelectionArray: (arg: boolean[]) => void;
 	id: number;
 }
+
+const StyledSkillTag = styled.div`
+	font-family: 'JetBrains Mono', monospace;
+	width: fit-content;
+	font-size: 0.7em;
+	padding: 3px 7px;
+	border-radius: 6px;
+	cursor: pointer;
+	user-select: none;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	border: 2px solid var(--main);
+`;
 
 export default function SkillsTag(props: TagProps) {
 	/**
@@ -31,18 +46,12 @@ export default function SkillsTag(props: TagProps) {
 
 	const CorrectIcon: any = typeToIconMapper[props.type];
 
-	const iconColor: string = props.selectionArray[props.id]
-		? colors.darkTheme.mainColor.darker
-		: 'white';
+	const iconColor: string = props.selectionArray[props.id] ? colors.darkTheme.mainColor.darker : 'white';
 
 	const changingStyle: object = {
-		backgroundColor: props.selectionArray[props.id]
-			? '#bbace8'
-			: 'transparent',
+		backgroundColor: props.selectionArray[props.id] ? '#bbace8' : 'transparent',
 
-		color: props.selectionArray[props.id]
-			? colors.darkTheme.mainColor.darker
-			: 'white',
+		color: props.selectionArray[props.id] ? colors.darkTheme.mainColor.darker : 'white',
 	};
 
 	const _onClick = () => {
@@ -55,9 +64,9 @@ export default function SkillsTag(props: TagProps) {
 	};
 
 	return (
-		<div className="skills-tag" onClick={_onClick} style={changingStyle}>
+		<StyledSkillTag onClick={_onClick} style={changingStyle}>
 			<CorrectIcon color={iconColor} size={17} />
 			<span style={changingStyle}>{props.type}</span>
-		</div>
+		</StyledSkillTag>
 	);
 }

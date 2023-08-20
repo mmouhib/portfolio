@@ -1,22 +1,37 @@
 import { tagLabelType } from '../../utils/types';
 import SkillsTag from './SkillsTag';
 import { useState } from 'react';
-import '../../styles/skills/TagsSelection.scss';
+import styled from 'styled-components';
+
+const StyledTagSelection = styled.div`
+	& .tags-container {
+		width: 90%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2vw;
+
+		background-color: #331267;
+		padding: 100px;
+		border-radius: 10px;
+	}
+
+	& span {
+		color: white;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	& h1 {
+		color: white;
+		margin-bottom: 30px;
+	}
+`;
 
 export default function TagsSelection() {
-	const [selectionArray, setSelectionArray] = useState<boolean[]>([
-		true,
-		true,
-		true,
-		true,
-	]);
+	const [selectionArray, setSelectionArray] = useState<boolean[]>([true, true, true, true]);
 
-	const tagTypes: tagLabelType[] = [
-		'programming languages',
-		'frameworks',
-		'software',
-		'databases',
-	];
+	const tagTypes: tagLabelType[] = ['programming languages', 'frameworks', 'software', 'databases'];
 
 	const resetArray = (): void => {
 		setSelectionArray([false, false, false, false]);
@@ -27,7 +42,7 @@ export default function TagsSelection() {
 	};
 
 	return (
-		<div className="tag-selection-container">
+		<StyledTagSelection>
 			<h1>Skills</h1>
 			<div className="tags-container">
 				{tagTypes.map((element: tagLabelType, index: number) => {
@@ -44,6 +59,6 @@ export default function TagsSelection() {
 				<span onClick={selectAll}>select all</span>
 				<span onClick={resetArray}>reset all</span>
 			</div>
-		</div>
+		</StyledTagSelection>
 	);
 }

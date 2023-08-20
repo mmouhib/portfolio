@@ -1,7 +1,53 @@
 import ageCalculator from '../../static/ageCalculator';
 import LanguageProgress from './LanguageProgress';
-import '../../styles/aboutMe/AboutMeContent.scss';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const StyledAboutMeContent = styled.div`
+	//todo: increase width to make the timeline smaller
+	width: 70%;
+	height: 100vh;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+
+	& .description {
+		width: 75%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-family: 'source code pro', sans-serif;
+		font-size: 1.5rem;
+		color: rgb(255, 245, 255);
+
+		& .hovered-sides {
+			transition: all 0.3s;
+			color: rgb(252, 171, 252);
+			font-weight: 700;
+		}
+
+		& .hovered {
+			transition: font-weight 1s;
+
+			&:hover {
+				color: rgb(175, 18, 175);
+				font-weight: 900;
+			}
+		}
+	}
+
+	& .language-progress-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 3vw;
+	}
+`;
 
 export default function AboutMeContent() {
 	const description: string = `Hello, i'm a 
@@ -13,7 +59,7 @@ export default function AboutMeContent() {
 	const [hovered, setHovered] = useState<number>(-1);
 
 	return (
-		<div className="about-me-left-side-container">
+		<StyledAboutMeContent>
 			<div className="description">
 				<p>
 					{description.split('').map((element, index) => {
@@ -43,6 +89,6 @@ export default function AboutMeContent() {
 				<LanguageProgress level="70%" language="French" />
 				<LanguageProgress level="10%" language="German" />
 			</div>
-		</div>
+		</StyledAboutMeContent>
 	);
 }

@@ -1,10 +1,44 @@
 import Modal from 'react-modal';
-import '../../styles/home/resumeModal.scss';
 import { IModalProps } from '../../utils/types';
 import frenchIcon from '../../assets/flags/fr.png';
 import englishIcon from '../../assets/flags/eng.png';
 import englishResume from '../../assets/resumes/englishResume.pdf';
 import frenchResume from '../../assets/resumes/frenchResume.pdf';
+import styled from 'styled-components';
+
+const StyledResumeModal = styled.div`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& p {
+		color: white;
+	}
+
+	& a {
+		width: 40%;
+		height: 50%;
+		border: 1px solid rgb(105, 105, 105);
+		border-radius: 7px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		padding: 10px;
+		cursor: pointer;
+		user-select: none;
+
+		& img {
+			width: 50%;
+		}
+
+		&:hover {
+			background-color: #2e2e2e;
+		}
+	}
+`;
 
 const customModalStyles: Modal.Styles = {
 	content: {
@@ -22,8 +56,7 @@ const customModalStyles: Modal.Styles = {
 		border: 'none',
 		minWidth: '400px',
 		backgroundColor: '#101010',
-		boxShadow:
-			'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
+		boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
 	},
 	overlay: {
 		backdropFilter: 'blur(10px)',
@@ -44,7 +77,7 @@ export default function ResumeModal(props: IModalProps) {
 			style={customModalStyles}
 			contentLabel="resume-modal"
 		>
-			<div className="modal-content">
+			<StyledResumeModal>
 				<a href={frenchResume} download="frenchResume" target="_blank">
 					<img src={frenchIcon} alt="french" />
 					<p>french</p>
@@ -53,7 +86,7 @@ export default function ResumeModal(props: IModalProps) {
 					<img src={englishIcon} alt="french" />
 					<p>english</p>
 				</a>
-			</div>
+			</StyledResumeModal>
 		</Modal>
 	);
 }

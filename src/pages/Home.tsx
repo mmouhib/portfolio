@@ -1,5 +1,4 @@
 import Navbar from '../components/home/navbar';
-import '../styles/pages/Home.scss';
 import ResumeModal from '../components/home/resumeModal';
 import { useState } from 'react';
 import Typewriter from '../components/home/typewriter';

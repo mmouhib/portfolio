@@ -3,7 +3,7 @@ import HelpCommand from './commands/helpCommand';
 import SocialsCommand from './commands/socialsCommand';
 import InfoCommand from './commands/infoCommand';
 import ErrorCommand from './commands/errorCommand';
-import '../../styles/console/consoleCommands.scss';
+import styled from 'styled-components';
 
 interface ConsoleCommandProps {
 	path: string;
@@ -12,6 +12,47 @@ interface ConsoleCommandProps {
 	setClear: (x: boolean) => void;
 	clearer: () => void;
 }
+
+const StyledConsoleCommand = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.3vh;
+
+	& .commands-section {
+		font-weight: bold;
+		font-size: large;
+		display: flex;
+		flex-direction: row;
+		gap: 0.7vw;
+	}
+
+	& .path {
+		color: #adbce3;
+	}
+
+	& input {
+		background-color: transparent;
+		border: 0;
+		color: #46ce25;
+		font-family: 'JetBrains Mono', sans-serif;
+		font-weight: bold;
+		font-size: large;
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	& .command-span {
+		background-color: transparent;
+		border: 0;
+		color: #46ce25;
+		font-family: 'JetBrains Mono', sans-serif;
+		font-weight: bold;
+		font-size: large;
+	}
+`;
 
 export default function ConsoleCommand(props: ConsoleCommandProps) {
 	const [command, setCommand] = useState<string>('');
@@ -28,7 +69,7 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 	}
 
 	return (
-		<div className="console-commands-container">
+		<StyledConsoleCommand>
 			<div className="commands-section">
 				<p className="path">{props.path}</p>
 				<div>
@@ -58,6 +99,6 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 					{command == 'socials' && <SocialsCommand />}
 				</>
 			)}
-		</div>
+		</StyledConsoleCommand>
 	);
 }

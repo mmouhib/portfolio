@@ -1,11 +1,65 @@
 import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import '../../styles/modal/emailForm.scss';
 import CustomInput from './customInput';
 import { MdContactPage } from 'react-icons/md';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import FormErrorAlert from './alert';
+import styled from 'styled-components';
+
+const StyledEmail = styled.form`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 90%;
+	gap: 10px;
+
+	& .names-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	& .contact-submit-button {
+		color: white;
+		border-radius: 5px;
+		width: 100%;
+		height: 40px;
+		cursor: pointer;
+		background-color: rgb(75, 14, 75);
+		font-weight: bold;
+		font-size: 100%;
+		transition: 0.5s all;
+
+		&:hover {
+			background-color: rgb(92, 2, 92);
+		}
+
+		&:active {
+			background-color: rgb(147, 0, 147);
+		}
+	}
+
+	& textarea {
+		border-radius: 7px;
+		outline: none;
+		border: 0;
+		width: 100%;
+		font-size: 100%;
+		background-color: #1e1e1e;
+		color: white;
+		padding: 10px;
+		font-family: 'inter', sans-serif;
+		resize: vertical;
+		max-height: 15vh;
+		min-height: 8vh;
+
+		&:focus {
+			outline: 2px solid #a3a3ff;
+		}
+	}
+`;
 
 export default function ContactUs(props: { closeModal: () => void }) {
 	const form = useRef<HTMLFormElement>(null);
@@ -48,7 +102,7 @@ export default function ContactUs(props: { closeModal: () => void }) {
 	};
 
 	return (
-		<form className="contact-input-form" ref={form} onSubmit={sendEmail}>
+		<StyledEmail ref={form} onSubmit={sendEmail}>
 			{error && <FormErrorAlert />}
 			<div className="names-container">
 				<CustomInput width="47%" icon={MdContactPage}>
@@ -100,6 +154,6 @@ export default function ContactUs(props: { closeModal: () => void }) {
 				placeholder="Message"
 			/>
 			<input type="submit" className="contact-submit-button" value="Send" />
-		</form>
+		</StyledEmail>
 	);
 }

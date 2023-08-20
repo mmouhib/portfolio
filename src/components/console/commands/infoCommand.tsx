@@ -1,10 +1,21 @@
 import ageCalculator from '../../../static/ageCalculator';
 import { GiTunisia, GiMale } from 'react-icons/gi';
-import '../../../styles/console/commands/infoCommand.scss';
+import styled from 'styled-components';
+
+const StyledInfoCommand = styled.div`
+	display: flex;
+	align-items: self-start;
+	justify-content: center;
+	flex-direction: column;
+
+	& span {
+		color: #87dccb;
+	}
+`;
 
 export default function InfoCommand() {
 	return (
-		<div className="info-command-container">
+		<StyledInfoCommand>
 			<span>
 				name: <span>Mouhib Ouni</span>
 			</span>
@@ -24,6 +35,6 @@ export default function InfoCommand() {
 					<GiMale color="red" /> Male
 				</span>
 			</span>
-		</div>
+		</StyledInfoCommand>
 	);
 }
