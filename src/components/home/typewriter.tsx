@@ -1,27 +1,29 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-
-const StyledTypewriter = styled.div`
-	padding-right: 2px;
-	width: fit-content;
-	font-family: 'JetBrains Mono', sans-serif;
-	font-size: 4vw;
-	color: var(--main);
-`;
+import React, { useEffect, useState } from 'react';
 
 //todo: fix responsive design
-export default function Typewriter() {
-	const name: string = 'Mouhib Ouni';
-	const [word, setWord] = useState<string>(name[0]);
+export default function Typewriter(props: { text: string }) {
+	const [word, setWord] = useState<string>('');
 	const [showCursor, setShowCursor] = useState<boolean>(true);
 
 	useEffect(() => {
-		if (word.length < name.length) {
-			setTimeout(() => {
-				setWord(word + name[word.length]);
-			}, 200);
+		/*
+		 * added the next check to make sure that the props.text is not undefined because the
+		 * hook is applied faster that passing the props that means that when the "word"
+		 * state is calculated, the props.text is still undefined
+		 * */
+		if (props.text) {
+			if (word == '') {
+				setWord(props.text[0]);
+			}
+
+			if (word.length < props.text.length) {
+				setTimeout(() => {
+					setWord(word + props.text[word.length]);
+				}, 200);
+			}
 		}
-		if (word == name) setShowCursor(false);
+
+		if (word == props.text) setShowCursor(false);
 	}, [word]);
 
 	useEffect(() => {
@@ -31,8 +33,8 @@ export default function Typewriter() {
 	}, [showCursor]);
 
 	return (
-		<StyledTypewriter style={{ borderRight: showCursor ? '4px solid purple' : 'none' }}>
+		<span style={{ borderRight: showCursor ? '4px solid purple' : 'none', width: 'fit-content' }}>
 			{word}
-		</StyledTypewriter>
+		</span>
 	);
 }
