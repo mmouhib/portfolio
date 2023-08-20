@@ -4,11 +4,13 @@ import styled from 'styled-components';
 
 interface ConsoleTopBarProps {
 	path: string;
+	consoleModalIsOpen: boolean;
+	setConsoleModalIsOpen: (arg: boolean) => void;
 }
 
 const StyledConsoleTopBar = styled.div`
 	width: 100%;
-	height: 9%;
+	height: 5%;
 	min-height: 35px;
 	background-color: #4205b7;
 	display: flex;
@@ -42,7 +44,7 @@ export default function ConsoleTopBar(props: ConsoleTopBarProps) {
 			<div className="window-controls">
 				<VscChromeMinimize color="white" size={15} />
 				<VscChromeMaximize color="white" size={15} />
-				<MdOutlineClose color="white" size={17} />
+				<MdOutlineClose color="white" size={17} onClick={() => props.setConsoleModalIsOpen(false)} />
 			</div>
 		</StyledConsoleTopBar>
 	);

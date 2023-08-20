@@ -80,6 +80,13 @@ const StyledHome = styled.div`
 			width: 100%;
 		}
 	}
+
+	.home-typewriter-container {
+		padding-right: 2px;
+		font-family: 'JetBrains Mono', sans-serif;
+		font-size: 4vw;
+		color: var(--main);
+	}
 `;
 
 export default function Home() {
@@ -91,7 +98,9 @@ export default function Home() {
 				<div className="home-text-description">
 					<h1>
 						Hey there! i'm
-						<Typewriter />
+						<div className="home-typewriter-container">
+							<Typewriter text="Mouhib Ouni" />
+						</div>
 					</h1>
 					<h2>Junior Software developer.</h2>
 					<p className="about">
