@@ -43,7 +43,7 @@ export default function ConsoleTopBar(props: ConsoleTopBarProps) {
 			<p className="path-container">mouhib@ouni:{props.path}</p>
 			<div className="window-controls">
 				<VscChromeMinimize color="white" size={15} />
-				<VscChromeMaximize color="white" size={15} />
+				<VscChromeMaximize color="white" size={15} onClick={() => props.setConsoleModalIsOpen(true)} />
 				<MdOutlineClose color="white" size={17} onClick={() => props.setConsoleModalIsOpen(false)} />
 			</div>
 		</StyledConsoleTopBar>

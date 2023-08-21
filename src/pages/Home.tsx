@@ -99,7 +99,7 @@ export default function Home() {
 					<h1>
 						Hey there! i'm
 						<div className="home-typewriter-container">
-							<Typewriter text="Mouhib Ouni" />
+							<Typewriter text="Mouhib Ouni" delay={200} />
 						</div>
 					</h1>
 					<h2>Junior Software developer.</h2>

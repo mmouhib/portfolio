@@ -5,6 +5,39 @@ import styled, { StyledComponent } from 'styled-components';
 import Modal from 'react-modal';
 import Typewriter from '../components/home/typewriter';
 
+const customModalStyles: Modal.Styles = {
+	content: {
+		width: '100%',
+		height: '100%',
+		top: '50%',
+		left: '50%',
+		right: 'auto',
+		bottom: 'auto',
+		transform: 'translate(-50%, -50%)',
+		marginRight: '-50%',
+		borderRadius: '4px',
+		padding: '0',
+		outline: 'none',
+		border: 'none',
+		backgroundColor: '#101010',
+		boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
+	},
+	overlay: {
+		backdropFilter: 'blur(10px)',
+		backgroundColor: 'transparent',
+	},
+};
+
+const StyledConsoleContainer = styled.div`
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--bg);
+	padding: 2vh 3vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
 const StyledConsole: StyledComponent<'div', any> = styled.div`
 	width: 100vw;
 	height: 100vh;
@@ -53,41 +86,19 @@ const StyledConsole: StyledComponent<'div', any> = styled.div`
 	}
 `;
 
-const customModalStyles: Modal.Styles = {
-	content: {
-		width: '100%',
-		height: '100%',
-		top: '50%',
-		left: '50%',
-		right: 'auto',
-		bottom: 'auto',
-		transform: 'translate(-50%, -50%)',
-		marginRight: '-50%',
-		borderRadius: '4px',
-		padding: '0',
-		outline: 'none',
-		border: 'none',
-		backgroundColor: '#101010',
-		boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
-	},
-	overlay: {
-		backdropFilter: 'blur(10px)',
-		backgroundColor: 'transparent',
-	},
-};
-
 const StyledConsoleTypewriter = styled.div`
 	padding-right: 2px;
 	font-family: 'JetBrains Mono', sans-serif;
-	font-size: 4vw;
-	color: var(--main);
+	font-size: 20px;
+	font-weight: normal;
+	color: #e8eaef;
 `;
 
 export default function Console() {
 	const [path, setPath] = useState<string>('~/dev/react/portfolio');
 	const [commandsArray, setCommandsArray] = useState<any>(['']);
 	const [clear, setClear] = useState<boolean>(true);
-	const [consoleModalIsOpen, setConsoleModalIsOpen] = useState<boolean>(false);
+	const [consoleModalIsOpen, setConsoleModalIsOpen] = useState<boolean>(true);
 
 	const ref = useRef<HTMLDivElement>(null);
 
@@ -104,37 +115,49 @@ export default function Console() {
 	}
 
 	return (
-		<Modal isOpen={consoleModalIsOpen} style={customModalStyles}>
-			<StyledConsole id="console">
-				<div className="console">
-					<ConsoleTopBar
-						path={path}
-						consoleModalIsOpen={consoleModalIsOpen}
-						setConsoleModalIsOpen={setConsoleModalIsOpen}
-					/>
-					{clear && (
-						<div className="console-box">
-							<div className="console-content" ref={ref}>
-								<StyledConsoleTypewriter>
-									<Typewriter text="mouhib ouni" />
-								</StyledConsoleTypewriter>
-								{commandsArray.map((_: any, index: number) => {
-									return (
-										<ConsoleCommand
-											key={index}
-											clearer={clearConsole}
-											setClear={setClear}
-											commandsArray={commandsArray}
-											path={path}
-											setCommandsArray={setCommandsArray}
+		<StyledConsoleContainer id="console">
+			{!consoleModalIsOpen && (
+				<ConsoleTopBar
+					path="mouhib@ouni:~/dev/react/portfolio"
+					consoleModalIsOpen={consoleModalIsOpen}
+					setConsoleModalIsOpen={setConsoleModalIsOpen}
+				/>
+			)}
+			<Modal isOpen={consoleModalIsOpen} style={customModalStyles}>
+				<StyledConsole>
+					<div className="console">
+						<ConsoleTopBar
+							path={path}
+							consoleModalIsOpen={consoleModalIsOpen}
+							setConsoleModalIsOpen={setConsoleModalIsOpen}
+						/>
+						{clear && (
+							<div className="console-box">
+								<div className="console-content" ref={ref}>
+									<StyledConsoleTypewriter>
+										<Typewriter
+											text="Hi, you can interact with this box as if it was a regular terminal"
+											delay={50}
 										/>
-									);
-								})}
+									</StyledConsoleTypewriter>
+									{commandsArray.map((_: any, index: number) => {
+										return (
+											<ConsoleCommand
+												key={index}
+												clearer={clearConsole}
+												setClear={setClear}
+												commandsArray={commandsArray}
+												path={path}
+												setCommandsArray={setCommandsArray}
+											/>
+										);
+									})}
+								</div>
 							</div>
-						</div>
-					)}
-				</div>
-			</StyledConsole>
-		</Modal>
+						)}
+					</div>
+				</StyledConsole>
+			</Modal>
+		</StyledConsoleContainer>
 	);
 }

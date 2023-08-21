@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 //todo: fix responsive design
-export default function Typewriter(props: { text: string }) {
+export default function Typewriter(props: { text: string; delay: number }) {
 	const [word, setWord] = useState<string>('');
 	const [showCursor, setShowCursor] = useState<boolean>(true);
 
@@ -19,7 +19,7 @@ export default function Typewriter(props: { text: string }) {
 			if (word.length < props.text.length) {
 				setTimeout(() => {
 					setWord(word + props.text[word.length]);
-				}, 200);
+				}, props.delay);
 			}
 		}
 
