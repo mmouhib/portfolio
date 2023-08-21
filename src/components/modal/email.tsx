@@ -22,22 +22,20 @@ const StyledEmail = styled.form`
 	}
 
 	& .contact-submit-button {
-		color: white;
-		border-radius: 5px;
 		width: 100%;
-		height: 40px;
+		height: fit-content;
+		border-radius: 7px;
+		font-size: 1rem;
+		padding: 10px;
+		background-color: var(--main);
+		color: white;
 		cursor: pointer;
-		background-color: rgb(75, 14, 75);
+		transition: color 1s ease-in-out, background-color 0.2s ease-in-out;
 		font-weight: bold;
-		font-size: 100%;
-		transition: 0.5s all;
 
 		&:hover {
-			background-color: rgb(92, 2, 92);
-		}
-
-		&:active {
-			background-color: rgb(147, 0, 147);
+			background-color: white;
+			color: var(--main);
 		}
 	}
 

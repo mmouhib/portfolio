@@ -54,7 +54,7 @@ const StyledConsoleContainer = styled.div`
 `;
 
 export default function Console() {
-	const [consoleModalIsOpen, setConsoleModalIsOpen] = useState<boolean>(true);
+	const [consoleModalIsOpen, setConsoleModalIsOpen] = useState<boolean>(false);
 
 	return (
 		<StyledConsoleContainer id="console">

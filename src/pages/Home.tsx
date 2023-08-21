@@ -104,8 +104,8 @@ export default function Home() {
 					</h1>
 					<h2>Junior Software developer.</h2>
 					<p className="about">
-						Hello! i'm and junior <span>mobile</span> and <span>web</span> developer looking to enhance
-						his skills and dive deeper into the software development field.
+						Hello! i'm and junior <span>mobile</span> and <span>web</span> developer who's looking
+						forward to enhance his skills and dive deeper into the software development field.
 					</p>
 				</div>
 				<div className="home-image-container">
