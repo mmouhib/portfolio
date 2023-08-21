@@ -9,6 +9,47 @@ interface ConsoleBoxProps {
 	setConsoleModalIsOpen: (arg: boolean) => void;
 }
 
+const StyledConsoleBox = styled.div<{ modalIsOpen: boolean }>`
+	background-color: #2b0473;
+	border-radius: 10px;
+	overflow: hidden;
+	width: ${(props) => (props.modalIsOpen ? '100%' : '60%')};
+	height: ${(props) => (props.modalIsOpen ? '100%' : '60%')};
+
+	& ::-webkit-scrollbar {
+		width: 0;
+	}
+
+	@media (max-width: 1280px) {
+		width: 70%;
+		height: 70%;
+	}
+
+	@media (max-width: 850px) {
+		width: 90%;
+		height: 90%;
+	}
+
+	.console-box {
+		overflow: scroll;
+		//next two lines to remove scrollbars of the overflow
+		padding: 0 17px 17px 0;
+		box-sizing: content-box;
+	}
+
+	.console-content {
+		width: 90%;
+		height: 95%;
+		padding: 5%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 10%;
+		color: white;
+		font-family: 'JetBrains Mono', sans-serif;
+	}
+`;
+
 const StyledConsoleTypewriter = styled.div`
 	padding-right: 2px;
 	font-family: 'JetBrains Mono', sans-serif;
@@ -38,7 +79,7 @@ export default function ConsoleBox(props: ConsoleBoxProps) {
 	}
 
 	return (
-		<div className="console">
+		<StyledConsoleBox modalIsOpen={props.consoleModalIsOpen}>
 			<ConsoleTopBar
 				path={path}
 				consoleModalIsOpen={props.consoleModalIsOpen}
@@ -68,6 +109,6 @@ export default function ConsoleBox(props: ConsoleBoxProps) {
 					</div>
 				</div>
 			)}
-		</div>
+		</StyledConsoleBox>
 	);
 }
