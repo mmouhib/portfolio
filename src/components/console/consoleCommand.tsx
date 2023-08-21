@@ -64,7 +64,10 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 		if (e.key === 'Enter') {
 			setCommandIsLaunched(true);
 			props.setCommandsArray([...props.commandsArray, '']);
-			if (['clear', 'cls'].includes(command.toLowerCase())) props.clearer();
+			if (['clear', 'cls'].includes(command.toLowerCase())) {
+				props.clearer();
+				setCommandIsLaunched(true);
+			}
 		}
 	}
 

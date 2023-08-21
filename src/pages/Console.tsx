@@ -1,9 +1,7 @@
-import ConsoleTopBar from '../components/console/consoleTopBar';
-import { useEffect, useRef, useState } from 'react';
-import ConsoleCommand from '../components/console/consoleCommand';
-import styled, { StyledComponent } from 'styled-components';
+import { useState } from 'react';
+import styled from 'styled-components';
 import Modal from 'react-modal';
-import Typewriter from '../components/home/typewriter';
+import ConsoleBox from '../components/console/consoleBox';
 
 const customModalStyles: Modal.Styles = {
 	content: {
@@ -38,7 +36,7 @@ const StyledConsoleContainer = styled.div`
 	justify-content: center;
 `;
 
-const StyledConsole: StyledComponent<'div', any> = styled.div`
+const StyledConsole = styled.div<{ modalIsOpen: boolean }>`
 	width: 100vw;
 	height: 100vh;
 	background-color: var(--bg);
@@ -47,8 +45,8 @@ const StyledConsole: StyledComponent<'div', any> = styled.div`
 	justify-content: center;
 
 	.console {
-		width: 90%;
-		height: 90%;
+		width: ${(props) => (props.modalIsOpen ? '90%' : '60%')};
+		height: ${(props) => (props.modalIsOpen ? '90%' : '60%')};
 		background-color: #2b0473;
 		border-radius: 10px;
 		overflow: hidden;
@@ -86,76 +84,24 @@ const StyledConsole: StyledComponent<'div', any> = styled.div`
 	}
 `;
 
-const StyledConsoleTypewriter = styled.div`
-	padding-right: 2px;
-	font-family: 'JetBrains Mono', sans-serif;
-	font-size: 20px;
-	font-weight: normal;
-	color: #e8eaef;
-`;
-
 export default function Console() {
-	const [path, setPath] = useState<string>('~/dev/react/portfolio');
-	const [commandsArray, setCommandsArray] = useState<any>(['']);
-	const [clear, setClear] = useState<boolean>(true);
 	const [consoleModalIsOpen, setConsoleModalIsOpen] = useState<boolean>(true);
-
-	const ref = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		if (!clear) setClear(true);
-	}, [clear]);
-
-	/**
-	 * this method clears the innerHTML of the console content
-	 * div when typing in a clear command using the ref object
-	 */
-	function clearConsole() {
-		if (ref.current) ref.current.innerHTML = '';
-	}
 
 	return (
 		<StyledConsoleContainer id="console">
-			{!consoleModalIsOpen && (
-				<ConsoleTopBar
-					path="mouhib@ouni:~/dev/react/portfolio"
+			<StyledConsole modalIsOpen={consoleModalIsOpen}>
+				<ConsoleBox
 					consoleModalIsOpen={consoleModalIsOpen}
 					setConsoleModalIsOpen={setConsoleModalIsOpen}
 				/>
-			)}
-			<Modal isOpen={consoleModalIsOpen} style={customModalStyles}>
-				<StyledConsole>
-					<div className="console">
-						<ConsoleTopBar
-							path={path}
-							consoleModalIsOpen={consoleModalIsOpen}
-							setConsoleModalIsOpen={setConsoleModalIsOpen}
-						/>
-						{clear && (
-							<div className="console-box">
-								<div className="console-content" ref={ref}>
-									<StyledConsoleTypewriter>
-										<Typewriter
-											text="Hi, you can interact with this box as if it was a regular terminal"
-											delay={50}
-										/>
-									</StyledConsoleTypewriter>
-									{commandsArray.map((_: any, index: number) => {
-										return (
-											<ConsoleCommand
-												key={index}
-												clearer={clearConsole}
-												setClear={setClear}
-												commandsArray={commandsArray}
-												path={path}
-												setCommandsArray={setCommandsArray}
-											/>
-										);
-									})}
-								</div>
-							</div>
-						)}
-					</div>
+			</StyledConsole>
+
+			<Modal isOpen={consoleModalIsOpen} style={customModalStyles} preventScroll={true}>
+				<StyledConsole modalIsOpen={consoleModalIsOpen}>
+					<ConsoleBox
+						consoleModalIsOpen={consoleModalIsOpen}
+						setConsoleModalIsOpen={setConsoleModalIsOpen}
+					/>
 				</StyledConsole>
 			</Modal>
 		</StyledConsoleContainer>
