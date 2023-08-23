@@ -52,6 +52,10 @@ const StyledConsoleCommand = styled.div`
 		font-weight: bold;
 		font-size: large;
 	}
+
+	& .command-box {
+		margin: 0 0 3vh 0;
+	}
 `;
 
 export default function ConsoleCommand(props: ConsoleCommandProps) {
@@ -95,12 +99,12 @@ export default function ConsoleCommand(props: ConsoleCommandProps) {
 			</div>
 
 			{commandIsLaunched && (
-				<>
+				<div className="command-box">
 					{!commandsArray.includes(command) && <ErrorCommand command={command} />}
 					{['help', 'man'].includes(command) && <HelpCommand />}
 					{command == 'info' && <InfoCommand />}
 					{command == 'socials' && <SocialsCommand />}
-				</>
+				</div>
 			)}
 		</StyledConsoleCommand>
 	);

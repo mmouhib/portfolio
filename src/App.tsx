@@ -3,11 +3,16 @@ import Console from './pages/Console';
 import AboutMe from './pages/AboutMe';
 import Contact from './pages/Contact';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { AiOutlineToTop } from 'react-icons/ai';
+import { BsFillArrowUpCircleFill } from 'react-icons/bs';
 import styled from 'styled-components';
 
 const StyledGoToTop = styled.a`
+	height: 60px;
+	width: 60px;
 	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	bottom: 0;
 	right: 0;
 	color: white;
@@ -16,18 +21,29 @@ const StyledGoToTop = styled.a`
 	padding: 3px;
 	margin: 30px;
 	cursor: pointer;
-	transition: all 0.5s;
+	transition: all 0.3s;
 
 	&:hover {
 		background-color: var(--main);
+		height: 65px;
+		width: 65px;
+		transform: rotate(6.3rad);
 	}
 `;
 
 export default function App() {
+	//todo: fix 'scroll to top circle' still showing on home section
+	const isAtHomePage = (): boolean => {
+		const location: string = document.location.href;
+		if (location.includes('home')) return false;
+		else if (!location.includes('#')) return false;
+		else if (window.scrollY == 0) return false;
+		return true;
+	};
 	return (
 		<BrowserRouter>
 			<StyledGoToTop href="#home">
-				<AiOutlineToTop size={40} />
+				<BsFillArrowUpCircleFill size={50} />
 			</StyledGoToTop>
 			<Routes>
 				<Route

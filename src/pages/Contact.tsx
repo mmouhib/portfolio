@@ -23,8 +23,8 @@ const StyledContact = styled.div`
 	& .contact-content {
 		width: 100vw;
 		height: 95%;
-		font-family: sans-serif;
-		font-weight: 600;
+		font-family: 'JetBrains Mono', sans-serif;
+		font-weight: 700;
 		font-size: 6rem;
 		display: flex;
 		align-items: center;
@@ -65,6 +65,10 @@ const StyledContact = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: center;
+		}
+
+		& * {
+			transition: all 0.1s;
 		}
 	}
 
@@ -116,7 +120,10 @@ export default function Contact() {
 						}}
 						onMouseLeave={clearHoveredIndex}
 					>
-						<AiFillGithub size={30} color={['', 'one'].includes(hoveredIconIndex) ? 'white' : 'grey'} />
+						<AiFillGithub
+							size={50}
+							color={['', 'one'].includes(hoveredIconIndex) ? 'white' : '#BA9CFFFF'}
+						/>
 					</a>
 
 					<a
@@ -127,7 +134,10 @@ export default function Contact() {
 						}}
 						onMouseLeave={clearHoveredIndex}
 					>
-						<AiFillGitlab size={30} color={['', 'two'].includes(hoveredIconIndex) ? 'white' : 'grey'} />
+						<AiFillGitlab
+							size={50}
+							color={['', 'two'].includes(hoveredIconIndex) ? 'white' : '#BA9CFFFF'}
+						/>
 					</a>
 
 					{/* icon two */}
@@ -140,8 +150,8 @@ export default function Contact() {
 						onMouseLeave={clearHoveredIndex}
 					>
 						<AiFillLinkedin
-							size={30}
-							color={['', 'three'].includes(hoveredIconIndex) ? 'white' : 'grey'}
+							size={50}
+							color={['', 'three'].includes(hoveredIconIndex) ? 'white' : '#BA9CFFFF'}
 						/>
 					</a>
 
@@ -155,8 +165,8 @@ export default function Contact() {
 						onMouseLeave={clearHoveredIndex}
 					>
 						<AiOutlineMail
-							size={30}
-							color={['', 'four'].includes(hoveredIconIndex) ? 'white' : 'grey'}
+							size={50}
+							color={['', 'four'].includes(hoveredIconIndex) ? 'white' : '#BA9CFFFF'}
 						/>
 					</a>
 				</div>
