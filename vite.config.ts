@@ -4,16 +4,14 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	server: {
-		host: true,
-		port: 6000,
-		watch: {
-			usePolling: true,
-		},
-	},
-
 	preview: {
+		port: 8080,
+		strictPort: true,
+	},
+	server: {
+		port: 8080,
+		strictPort: true,
 		host: true,
-		port: 6000,
+		origin: 'http://0.0.0.0:8080',
 	},
 });
